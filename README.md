@@ -108,9 +108,8 @@ The importer never overwrites existing notes — safe to re-run at any time.
 
 1. Open **1.Tools/Homepage.md**
 2. Set your **Campaign Name** using the inline text field at the top
-3. Click **New Party** in the Quick Create panel
-4. Set the **Active Party** field to your new party's name
-5. Start creating with the Quick Create buttons or the full **1.Tools/Buttons.md** page
+3. Click **New Party** in the Quick Create panel — the Active Party is set automatically
+4. Start creating with the Quick Create buttons or the full **1.Tools/Buttons.md** page
 
 ---
 
