@@ -1,0 +1,1 @@
+# TTRPG Vault for Obsidian
