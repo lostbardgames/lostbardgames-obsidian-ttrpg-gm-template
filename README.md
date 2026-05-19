@@ -1,6 +1,6 @@
-# TTRPG Vault for Obsidian
+# LBG TTRPG GM Template for Obsidian
 
-A fully featured campaign management vault template for [Obsidian](https://obsidian.md). Built for Game Masters running tabletop RPG campaigns.
+> **This vault is designed for Game Masters.** It gives you everything you need to plan, run, and track tabletop RPG campaigns — all inside [Obsidian](https://obsidian.md). A separate player-focused template is coming in the future.
 
 ---
 
@@ -8,8 +8,8 @@ A fully featured campaign management vault template for [Obsidian](https://obsid
 
 - **Homepage dashboard** — Active party tracker, world overview, quick-create buttons, and inspiration tables with rollable dice
 - **GM Screen** — Initiative tracker, rules reference, and live session notes in one place
-- **29 note types** — Each with matching icons and colors on internal links and in the file explorer
-- **One-click note creation** — Quick Create buttons for characters, locations, lore, story, and possessions
+- **29 GM note types** — Characters, locations, factions, quests, encounters, lore, and more — each with matching icons and colors
+- **One-click note creation** — Quick Create buttons for every note type a GM needs
 - **5e.tools importer** — Import spells, items, classes, races, feats, backgrounds, deities, and more with one click
 - **Obsidian Bases** — Party dashboards with dynamic member cards and adventure tracking
 - **17 pre-installed plugins** — Configured and ready to use out of the box
