@@ -1,0 +1,109 @@
+properties:
+  file.name:
+    displayName: Name
+  property.aliases:
+    displayName: Aliases
+  property.occupation:
+    displayName: Occupation
+  property.currentLocation:
+    displayName: Location
+  property.organizationTypes:
+    displayName: Type
+  property.poiTypes:
+    displayName: Type
+  property.districttype:
+    displayName: Type
+  property.organizations:
+    displayName: Organizations
+  note.aliases:
+    displayName: Aliases
+  note.occupation:
+    displayName: Occupation
+  note.organizations:
+    displayName: Organizations
+  note.currentLocation:
+    displayName: Location
+  note.organizationTypes:
+    displayName: Types
+  note.poiTypes:
+    displayName: Types
+  note.vehicleType:
+    displayName: Type
+  note.poiType:
+    displayName: PoI Type
+views:
+  - type: table
+    name: Characters
+    filters:
+      and:
+        - currentLocation.contains(this)
+        - file.inFolder("Campaign/Characters")
+        - or:
+            - '!condition.contains("Dead")'
+            - condition.isEmpty()
+    order:
+      - file.name
+      - aliases
+      - occupation
+      - organizations
+      - currentLocation
+    sort: []
+    columnSize:
+      file.name: 167
+      property.aliases: 188
+      property.occupation: 177
+      property.currentLocation: 319
+  - type: table
+    name: Organizations
+    filters:
+      and:
+        - file.inFolder("Campaign/Organizations")
+        - currentLocation.contains(this)
+    order:
+      - file.name
+      - aliases
+      - organizations
+      - organizationTypes
+    sort:
+      - property: property.organizationTypes
+        direction: ASC
+    columnSize:
+      file.name: 223
+      property.aliases: 188
+      property.organizationTypes: 146
+  - type: table
+    name: Points of Interest
+    filters:
+      and:
+        - file.inFolder("Campaign/Points of Interest")
+        - currentLocation.contains(this)
+    order:
+      - file.name
+      - aliases
+      - poiType
+      - currentLocation
+    sort:
+      - property: file.name
+        direction: ASC
+      - property: property.poiTypes
+        direction: ASC
+    columnSize:
+      file.name: 167
+      note.poiTypes: 167
+  - type: table
+    name: Vehicles
+    filters:
+      and:
+        - file.inFolder("Campaign/Possessions/Vehicles")
+        - currentLocation.contains(this)
+    order:
+      - file.name
+      - aliases
+      - vehicleType
+      - currentLocation
+    sort: []
+    columnSize:
+      file.name: 167
+      property.aliases: 188
+      property.occupation: 177
+      property.currentLocation: 319

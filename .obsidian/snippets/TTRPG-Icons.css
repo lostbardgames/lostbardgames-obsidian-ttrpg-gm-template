@@ -97,11 +97,11 @@
    LORE
    ═══════════════════════ */
 
-/* Classes (not Subclasses or ClassFeature) */
-.data-link-icon[data-link-tags*="Class" i]:not([data-link-tags*="Subclass" i]):not([data-link-tags*="ClassFeature" i])::before,
-.nav-file-title-content[data-link-tags*="Class" i]:not([data-link-tags*="Subclass" i]):not([data-link-tags*="ClassFeature" i])::before { content: "⚔️ "; }
-.data-link-text[data-link-tags*="Class" i]:not([data-link-tags*="Subclass" i]):not([data-link-tags*="ClassFeature" i]),
-.nav-file-title-content[data-link-tags*="Class" i]:not([data-link-tags*="Subclass" i]):not([data-link-tags*="ClassFeature" i]) { color: #e74c3c !important; }
+/* Classes (not Subclasses) */
+.data-link-icon[data-link-tags*="Class" i]:not([data-link-tags*="Subclass" i])::before,
+.nav-file-title-content[data-link-tags*="Class" i]:not([data-link-tags*="Subclass" i])::before { content: "⚔️ "; }
+.data-link-text[data-link-tags*="Class" i]:not([data-link-tags*="Subclass" i]),
+.nav-file-title-content[data-link-tags*="Class" i]:not([data-link-tags*="Subclass" i]) { color: #e74c3c !important; }
 
 /* Subclasses */
 .data-link-icon[data-link-tags*="Subclass" i]::before,
@@ -109,45 +109,27 @@
 .data-link-text[data-link-tags*="Subclass" i],
 .nav-file-title-content[data-link-tags*="Subclass" i] { color: #e67e22 !important; }
 
-/* Class Features */
-.data-link-icon[data-link-tags*="ClassFeature" i]::before,
-.nav-file-title-content[data-link-tags*="ClassFeature" i]::before { content: "📖 "; }
-.data-link-text[data-link-tags*="ClassFeature" i],
-.nav-file-title-content[data-link-tags*="ClassFeature" i] { color: #e74c3c !important; }
-
-/* Races / Species (not RacialTrait) */
-.data-link-icon[data-link-tags*="Race" i]:not([data-link-tags*="RacialTrait" i])::before,
+/* Races / Species */
+.data-link-icon[data-link-tags*="Race" i]::before,
 .data-link-icon[data-link-tags*="Species" i]::before,
-.nav-file-title-content[data-link-tags*="Race" i]:not([data-link-tags*="RacialTrait" i])::before,
+.nav-file-title-content[data-link-tags*="Race" i]::before,
 .nav-file-title-content[data-link-tags*="Species" i]::before { content: "🧬 "; }
-.data-link-text[data-link-tags*="Race" i]:not([data-link-tags*="RacialTrait" i]),
+.data-link-text[data-link-tags*="Race" i],
 .data-link-text[data-link-tags*="Species" i],
-.nav-file-title-content[data-link-tags*="Race" i]:not([data-link-tags*="RacialTrait" i]),
+.nav-file-title-content[data-link-tags*="Race" i],
 .nav-file-title-content[data-link-tags*="Species" i] { color: #00cec9 !important; }
 
-/* Racial Traits */
-.data-link-icon[data-link-tags*="RacialTrait" i]::before,
-.nav-file-title-content[data-link-tags*="RacialTrait" i]::before { content: "🧬 "; }
-.data-link-text[data-link-tags*="RacialTrait" i],
-.nav-file-title-content[data-link-tags*="RacialTrait" i] { color: #00cec9 !important; }
+/* Backgrounds */
+.data-link-icon[data-link-tags*="Background" i]::before,
+.nav-file-title-content[data-link-tags*="Background" i]::before { content: "📜 "; }
+.data-link-text[data-link-tags*="Background" i],
+.nav-file-title-content[data-link-tags*="Background" i] { color: #c9a84c !important; }
 
-/* Backgrounds (not BackgroundFeature) */
-.data-link-icon[data-link-tags*="Background" i]:not([data-link-tags*="BackgroundFeature" i])::before,
-.nav-file-title-content[data-link-tags*="Background" i]:not([data-link-tags*="BackgroundFeature" i])::before { content: "📜 "; }
-.data-link-text[data-link-tags*="Background" i]:not([data-link-tags*="BackgroundFeature" i]),
-.nav-file-title-content[data-link-tags*="Background" i]:not([data-link-tags*="BackgroundFeature" i]) { color: #c9a84c !important; }
-
-/* Background Features */
-.data-link-icon[data-link-tags*="BackgroundFeature" i]::before,
-.nav-file-title-content[data-link-tags*="BackgroundFeature" i]::before { content: "📜 "; }
-.data-link-text[data-link-tags*="BackgroundFeature" i],
-.nav-file-title-content[data-link-tags*="BackgroundFeature" i] { color: #c9a84c !important; }
-
-/* Feats (not ClassFeature or BackgroundFeature or OptionalFeature) */
-.data-link-icon[data-link-tags*="Feat" i]:not([data-link-tags*="ClassFeature" i]):not([data-link-tags*="BackgroundFeature" i]):not([data-link-tags*="OptionalFeature" i])::before,
-.nav-file-title-content[data-link-tags*="Feat" i]:not([data-link-tags*="ClassFeature" i]):not([data-link-tags*="BackgroundFeature" i]):not([data-link-tags*="OptionalFeature" i])::before { content: "⭐ "; }
-.data-link-text[data-link-tags*="Feat" i]:not([data-link-tags*="ClassFeature" i]):not([data-link-tags*="BackgroundFeature" i]):not([data-link-tags*="OptionalFeature" i]),
-.nav-file-title-content[data-link-tags*="Feat" i]:not([data-link-tags*="ClassFeature" i]):not([data-link-tags*="BackgroundFeature" i]):not([data-link-tags*="OptionalFeature" i]) { color: #fdcb6e !important; }
+/* Feats */
+.data-link-icon[data-link-tags*="Feat" i]::before,
+.nav-file-title-content[data-link-tags*="Feat" i]::before { content: "⭐ "; }
+.data-link-text[data-link-tags*="Feat" i],
+.nav-file-title-content[data-link-tags*="Feat" i] { color: #fdcb6e !important; }
 
 /* Conditions */
 .data-link-icon[data-link-tags*="Condition" i]::before,

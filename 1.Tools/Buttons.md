@@ -1,0 +1,335 @@
+
+## 👥 Characters
+
+> [!column|2 no-t]
+>
+> > [!note|no-t]
+> >
+> > ```meta-bind-button
+> > label: "New Party"
+> > style: primary
+> > actions:
+> >   - type: command
+> >     command: quickadd:choice:a1b2c3d4-0001-4000-8000-000000000005
+> > ```
+> >
+> > ```meta-bind-button
+> > label: "New Player Character"
+> > style: primary
+> > actions:
+> >   - type: command
+> >     command: quickadd:choice:a1b2c3d4-0001-4000-8000-000000000001
+> > ```
+> >
+> > ```meta-bind-button
+> > label: "New NPC"
+> > style: primary
+> > actions:
+> >   - type: command
+> >     command: quickadd:choice:a1b2c3d4-0001-4000-8000-000000000002
+> > ```
+>
+> > [!note|no-t]
+> >
+> > ```meta-bind-button
+> > label: "New Deity"
+> > style: primary
+> > actions:
+> >   - type: command
+> >     command: quickadd:choice:a1b2c3d4-0001-4000-8000-000000000003
+> > ```
+> >
+> > ```meta-bind-button
+> > label: "New Organization"
+> > style: primary
+> > actions:
+> >   - type: command
+> >     command: quickadd:choice:a1b2c3d4-0001-4000-8000-000000000004
+> > ```
+
+---
+
+## 🗺️ Locations
+
+> [!column|2 no-t]
+>
+> > [!note|no-t]
+> >
+> > ```meta-bind-button
+> > label: "New World"
+> > style: primary
+> > actions:
+> >   - type: command
+> >     command: quickadd:choice:a1b2c3d4-0001-4000-8000-000000000006
+> > ```
+> >
+> > ```meta-bind-button
+> > label: "New Plane"
+> > style: primary
+> > actions:
+> >   - type: command
+> >     command: quickadd:choice:a1b2c3d4-0001-4000-8000-000000000011
+> > ```
+> >
+> > ```meta-bind-button
+> > label: "New Region"
+> > style: primary
+> > actions:
+> >   - type: command
+> >     command: quickadd:choice:a1b2c3d4-0001-4000-8000-000000000007
+> > ```
+> >
+> > ```meta-bind-button
+> > label: "New Settlement"
+> > style: primary
+> > actions:
+> >   - type: command
+> >     command: quickadd:choice:a1b2c3d4-0001-4000-8000-000000000008
+> > ```
+>
+> > [!note|no-t]
+> >
+> > ```meta-bind-button
+> > label: "New District"
+> > style: primary
+> > actions:
+> >   - type: command
+> >     command: quickadd:choice:a1b2c3d4-0001-4000-8000-000000000009
+> > ```
+> >
+> > ```meta-bind-button
+> > label: "New Area"
+> > style: primary
+> > actions:
+> >   - type: command
+> >     command: quickadd:choice:a1b2c3d4-0001-4000-8000-000000000010
+> > ```
+> >
+> > ```meta-bind-button
+> > label: "New Point of Interest"
+> > style: primary
+> > actions:
+> >   - type: command
+> >     command: quickadd:choice:a1b2c3d4-0001-4000-8000-000000000012
+> > ```
+> >
+> > ```meta-bind-button
+> > label: "New Shop"
+> > style: primary
+> > actions:
+> >   - type: command
+> >     command: quickadd:choice:a1b2c3d4-0001-4000-8000-000000000013
+> > ```
+
+---
+
+## 📖 Lore
+
+> [!column|3 no-t]
+>
+> > [!note|no-t]
+> >
+> > ```meta-bind-button
+> > label: "New Class"
+> > style: primary
+> > actions:
+> >   - type: command
+> >     command: quickadd:choice:a1b2c3d4-0001-4000-8000-000000000014
+> > ```
+> >
+> > ```meta-bind-button
+> > label: "New Subclass"
+> > style: primary
+> > actions:
+> >   - type: command
+> >     command: quickadd:choice:a1b2c3d4-0001-4000-8000-000000000015
+> > ```
+> >
+> > ```meta-bind-button
+> > label: "New Race"
+> > style: primary
+> > actions:
+> >   - type: command
+> >     command: quickadd:choice:a1b2c3d4-0001-4000-8000-000000000016
+> > ```
+>
+> > [!note|no-t]
+> >
+> > ```meta-bind-button
+> > label: "New Background"
+> > style: primary
+> > actions:
+> >   - type: command
+> >     command: quickadd:choice:a1b2c3d4-0001-4000-8000-000000000017
+> > ```
+> >
+> > ```meta-bind-button
+> > label: "New Feat"
+> > style: primary
+> > actions:
+> >   - type: command
+> >     command: quickadd:choice:a1b2c3d4-0001-4000-8000-000000000018
+> > ```
+> >
+> > ```meta-bind-button
+> > label: "New Condition"
+> > style: primary
+> > actions:
+> >   - type: command
+> >     command: quickadd:choice:a1b2c3d4-0001-4000-8000-000000000019
+> > ```
+>
+> > [!note|no-t]
+> >
+> > ```meta-bind-button
+> > label: "New Event"
+> > style: primary
+> > actions:
+> >   - type: command
+> >     command: quickadd:choice:a1b2c3d4-0001-4000-8000-000000000020
+> > ```
+> >
+> > ```meta-bind-button
+> > label: "New Language"
+> > style: primary
+> > actions:
+> >   - type: command
+> >     command: quickadd:choice:a1b2c3d4-0001-4000-8000-000000000021
+> > ```
+> >
+> > ```meta-bind-button
+> > label: "New Optional Feature"
+> > style: primary
+> > actions:
+> >   - type: command
+> >     command: quickadd:choice:a1b2c3d4-0001-4000-8000-000000000022
+> > ```
+
+---
+
+## 📜 Story
+
+> [!column|2 no-t]
+>
+> > [!note|no-t]
+> >
+> > ```meta-bind-button
+> > label: "New Adventure"
+> > style: primary
+> > actions:
+> >   - type: command
+> >     command: quickadd:choice:a1b2c3d4-0001-4000-8000-000000000023
+> > ```
+> >
+> > ```meta-bind-button
+> > label: "New Quest"
+> > style: primary
+> > actions:
+> >   - type: command
+> >     command: quickadd:choice:a1b2c3d4-0001-4000-8000-000000000024
+> > ```
+> >
+> > ```meta-bind-button
+> > label: "New Session Notes"
+> > style: primary
+> > actions:
+> >   - type: command
+> >     command: quickadd:choice:a1b2c3d4-0001-4000-8000-000000000025
+> > ```
+>
+> > [!note|no-t]
+> >
+> > ```meta-bind-button
+> > label: "New Encounter"
+> > style: primary
+> > actions:
+> >   - type: command
+> >     command: quickadd:choice:a1b2c3d4-0001-4000-8000-000000000026
+> > ```
+> >
+> > ```meta-bind-button
+> > label: "New Service Request"
+> > style: primary
+> > actions:
+> >   - type: command
+> >     command: quickadd:choice:a1b2c3d4-0001-4000-8000-000000000027
+> > ```
+
+---
+
+## 💼 Possessions
+
+> [!column|2 no-t]
+>
+> > [!note|no-t]
+> >
+> > ```meta-bind-button
+> > label: "New Item"
+> > style: primary
+> > actions:
+> >   - type: command
+> >     command: quickadd:choice:a1b2c3d4-0001-4000-8000-000000000028
+> > ```
+>
+> > [!note|no-t]
+> >
+> > ```meta-bind-button
+> > label: "New Spell"
+> > style: primary
+> > actions:
+> >   - type: command
+> >     command: quickadd:choice:a1b2c3d4-0001-4000-8000-000000000029
+> > ```
+
+---
+
+## 🗄️ Vault
+
+> [!column|3 no-t]
+>
+> > [!success|no-t] **Import Data**
+> >
+> > ```meta-bind-button
+> > label: "Import 5e.tools Data"
+> > style: primary
+> > actions:
+> >   - type: command
+> >     command: quickadd:choice:a1b2c3d4-0001-4000-8000-000000000031
+> > ```
+> >
+> > Walks you through four steps:
+> > 1. **Source** — WotC official (all books), specific books (pick exactly which ones), or all sources including third-party
+> > 2. **Books** *(specific mode only)* — multi-select from PHB, XGE, TCE, DMG, CoS, and 30+ more
+> > 3. **Content types** — pick any combination of spells, items, classes, races, feats, backgrounds, languages, deities, conditions, and optional features
+> > 4. **Confirm** — then downloads and creates notes automatically
+> >
+> > Non-destructive — existing notes are never overwritten, so it's safe to re-run. If Python 3 is not installed, the button will offer to install it for you. Requires an internet connection.
+> >
+> > > [!warning] ⚠️ License Disclaimer
+> > > You are responsible for ensuring you have a valid license or legal right to access the content you import. This tool does not grant any rights to copyrighted material. Content from the SRD 5.1 is available under the Creative Commons license. All other sourcebooks require a valid purchase or license from the publisher.
+>
+> > [!info|no-t] **Update Vault**
+> >
+> > ```meta-bind-button
+> > label: "Check for Updates"
+> > style: primary
+> > actions:
+> >   - type: command
+> >     command: quickadd:choice:a1b2c3d4-0001-4000-8000-000000000032
+> > ```
+> >
+> > Checks GitHub for a newer version and walks you through the update. Templates, scripts, CSS snippets, and guide files are updated automatically. Tool files (Homepage, Buttons, GM Screen) are optional — they are backed up as `.bak` files before being overwritten.
+> >
+> > Your campaign data (`Campaign/`, `z_Databases/`, `z_Assets/`) is **never touched**. Requires an internet connection and Python 3.
+>
+> > [!danger] ⚠️ Danger Zone
+> >
+> > ```meta-bind-button
+> > label: "Reset Vault"
+> > style: destructive
+> > actions:
+> >   - type: command
+> >     command: quickadd:choice:a1b2c3d4-0001-4000-8000-000000000030
+> > ```
+> >
+> > Choose between **Campaign Data Only** (preserves 5e.tools imports) or **Full Reset** (deletes everything). ⚠️ Files are permanently deleted and cannot be recovered.

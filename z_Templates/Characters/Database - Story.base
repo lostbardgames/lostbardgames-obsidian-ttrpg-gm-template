@@ -1,0 +1,57 @@
+properties:
+  file.name:
+    displayName: Adventure
+  property.completed:
+    displayName: Done
+  property.summary:
+    displayName: Summary
+  property.tone:
+    displayName: Tone
+  property.startingLevel:
+    displayName: Start Lvl
+  property.endingLevel:
+    displayName: End Lvl
+  property.antagonist:
+    displayName: Antagonist
+views:
+  - type: table
+    name: Adventures
+    filters:
+      and:
+        - file.tags.contains("Adventure")
+        - whichParty.contains(this)
+    order:
+      - file.name
+      - completed
+      - summary
+      - tone
+      - startingLevel
+      - endingLevel
+      - antagonist
+    columnSize:
+      file.name: 200
+      property.completed: 60
+      property.summary: 300
+      property.tone: 120
+      property.startingLevel: 80
+      property.endingLevel: 80
+      property.antagonist: 160
+  - type: table
+    name: All Adventures
+    filters:
+      and:
+        - file.tags.contains("Adventure")
+    order:
+      - file.name
+      - completed
+      - summary
+      - tone
+      - startingLevel
+      - endingLevel
+    columnSize:
+      file.name: 200
+      property.completed: 60
+      property.summary: 300
+      property.tone: 120
+      property.startingLevel: 80
+      property.endingLevel: 80

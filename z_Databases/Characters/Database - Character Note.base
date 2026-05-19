@@ -1,0 +1,104 @@
+properties:
+  file.name:
+    displayName: Name
+  property.aliases:
+    displayName: Aliases
+  property.deliveryDate:
+    displayName: Due Date
+  property.summary:
+    displayName: Summary
+  property.poiTypes:
+    displayName: Type
+  property.currentLocation:
+    displayName: Location
+  note.aliases:
+    displayName: Aliases
+  note.deliveryDate:
+    displayName: Delivery Date
+  note.summary:
+    displayName: Summary
+  note.poiTypes:
+    displayName: Types
+  note.currentLocation:
+    displayName: Location
+  note.fc-date:
+    displayName: Due Date
+  note.completed:
+    displayName: Completed
+views:
+  - type: table
+    name: Service Requests
+    filters:
+      and:
+        - file.inFolder("Campaign/Parties/Service Requests")
+        - customer.contains(this)
+        - completed != true
+    order:
+      - file.name
+      - aliases
+      - fc-date
+      - completed
+      - summary
+    columnSize:
+      file.name: 186
+      note.aliases: 169
+      note.fc-date: 110
+      note.completed: 21
+  - type: table
+    name: Letters
+    filters:
+      and:
+        - holder.contains(this)
+        - tags.contains("Letter")
+    order:
+      - file.name
+      - aliases
+      - summary
+    columnSize:
+      file.name: 134
+      note.aliases: 203
+      note.summary: 380
+  - type: table
+    name: Literature
+    filters:
+      and:
+        - file.inFolder("Campaign/Possessions/Literature")
+        - holder.contains(this)
+    order:
+      - file.name
+      - aliases
+      - summary
+    columnSize:
+      file.name: 153
+      property.aliases: 181
+      property.summary: 435
+  - type: table
+    name: Owned Locations
+    filters:
+      and:
+        - tags.contains("Location")
+        - owners.contains(this)
+    order:
+      - file.name
+      - aliases
+      - poiType
+      - currentLocation
+    columnSize:
+      file.name: 228
+      note.aliases: 203
+      note.poiTypes: 173
+  - type: table
+    name: Owned Vehicles
+    filters:
+      and:
+        - file.inFolder("Campaign/Possessions/Vehicles")
+        - owners.contains(this)
+    order:
+      - file.name
+      - aliases
+      - vehicleType
+      - currentLocation
+    columnSize:
+      file.name: 228
+      note.aliases: 203
+      note.poiTypes: 173

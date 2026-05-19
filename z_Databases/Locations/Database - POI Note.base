@@ -1,0 +1,55 @@
+properties:
+  file.name:
+    displayName: Name
+  property.aliases:
+    displayName: Aliases
+  property.occupation:
+    displayName: Occupation
+  property.currentLocation:
+    displayName: Location
+  property.organizationTypes:
+    displayName: Type
+  property.poiTypes:
+    displayName: Type
+  property.districttype:
+    displayName: Type
+  property.organizations:
+    displayName: Organizations
+  property.ancestry:
+    displayName: Ancestry
+  property.heritage:
+    displayName: Heritage
+  note.aliases:
+    displayName: Aliases
+  note.ancestry:
+    displayName: Ancestry
+  note.heritage:
+    displayName: Heritage
+  note.occupation:
+    displayName: Occupation
+  note.organizations:
+    displayName: Organizations
+views:
+  - type: table
+    name: Characters
+    filters:
+      and:
+        - file.inFolder("Campaign/Characters")
+        - currentLocation.contains(this)
+        - or:
+            - '!condition.contains("Dead")'
+            - condition.isEmpty()
+    order:
+      - file.name
+      - aliases
+      - ancestry
+      - heritage
+      - occupation
+      - organizations
+    sort: []
+    columnSize:
+      file.name: 167
+      property.aliases: 188
+      property.ancestry: 108
+      property.heritage: 172
+      property.occupation: 177

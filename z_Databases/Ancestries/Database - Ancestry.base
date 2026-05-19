@@ -1,0 +1,43 @@
+properties:
+  file.name:
+    displayName: Name
+  note.property.heritage-rarity:
+    displayName: Rarity
+  note.property.aliases:
+    displayName: Aliases
+  note.property.heritage:
+    displayName: Heritage
+  note.property.gender:
+    displayName: Gender
+views:
+  - type: table
+    name: Compatiable Heritages
+    filters:
+      and:
+        - file.inFolder("Campaign/Lore/Heritages")
+        - parentAncestries.contains(this)
+    order:
+      - file.name
+      - aliases
+      - rarity
+    columnSize:
+      file.name: 210
+      property.aliases: 283
+  - type: table
+    name: Characters of Ancestry
+    filters:
+      and:
+        - contains(property.ancestry, concat("[[", this.file.name, "]]"))
+    order:
+      - file.name
+      - aliases
+      - heritage
+      - gender
+    sort:
+      - property: property.heritage
+        direction: ASC
+    columnSize:
+      file.name: 210
+      property.aliases: 191
+      property.heritage: 151
+      property.gender: 115

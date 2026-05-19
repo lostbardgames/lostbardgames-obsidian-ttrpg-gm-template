@@ -1,0 +1,58 @@
+properties:
+  file.name:
+    displayName: Name
+  property.playedBy:
+    displayName: Player
+  property.class:
+    displayName: Class
+  property.level:
+    displayName: Level
+  property.hp_current:
+    displayName: HP
+  property.ac:
+    displayName: AC
+  property.condition:
+    displayName: Condition
+  property.currentLocation:
+    displayName: Location
+views:
+  - type: cards
+    name: Party Members
+    filters:
+      and:
+        - file.tags.contains("Player")
+        - whichParty.contains(this)
+    order:
+      - file.name
+      - playedBy
+      - class
+      - level
+      - hp_current
+      - ac
+      - condition
+    image: note.art
+    cardSize: 120
+  - type: table
+    name: Stats
+    filters:
+      and:
+        - file.tags.contains("Player")
+        - whichParty.contains(this)
+    order:
+      - file.name
+      - playedBy
+      - class
+      - level
+      - hp_current
+      - ac
+      - condition
+      - currentLocation
+    columnSize:
+      file.name: 160
+      property.playedBy: 120
+      property.class: 120
+      property.level: 60
+      property.hp_current: 60
+      property.ac: 60
+      property.condition: 140
+      property.currentLocation: 160

@@ -1,0 +1,82 @@
+properties:
+  file.name:
+    displayName: Name
+  property.aliases:
+    displayName: Aliases
+  property.occupation:
+    displayName: Occupation
+  property.currentLocation:
+    displayName: Location
+  property.organizationTypes:
+    displayName: Type
+  property.poiTypes:
+    displayName: Type
+  property.districttype:
+    displayName: Type
+  property.organizations:
+    displayName: Organizations
+  note.aliases:
+    displayName: Aliases
+  note.occupation:
+    displayName: Occupation
+  note.organizations:
+    displayName: Organizations
+  note.currentLocation:
+    displayName: Location
+  note.organizationTypes:
+    displayName: Types
+  note.poiTypes:
+    displayName: Types
+  note.districttype:
+    displayName: Types
+views:
+  - type: table
+    name: Planets
+    filters:
+      and:
+        - file.inFolder("Campaign/Worlds")
+        - worldType.contains("Planet")
+        - currentLocation.contains(this)
+    order:
+      - file.name
+      - aliases
+      - currentLocation
+    sort: []
+    columnSize:
+      file.name: 167
+      property.aliases: 188
+      property.occupation: 177
+      property.currentLocation: 319
+  - type: table
+    name: Moons
+    filters:
+      and:
+        - file.inFolder("Campaign/Worlds")
+        - worldType.contains("Moon")
+        - currentLocation.contains(this)
+    order:
+      - file.name
+      - aliases
+      - currentLocation
+    sort: []
+    columnSize:
+      file.name: 167
+      property.aliases: 188
+      property.occupation: 177
+      property.currentLocation: 319
+  - type: cards
+    name: Areas
+    filters:
+      and:
+        - file.inFolder("Campaign/Areas")
+        - currentLocation.contains(this)
+    order:
+      - file.name
+      - aliases
+      - currentLocation
+    sort: []
+    columnSize:
+      file.name: 167
+      property.aliases: 188
+      property.occupation: 177
+      property.currentLocation: 319

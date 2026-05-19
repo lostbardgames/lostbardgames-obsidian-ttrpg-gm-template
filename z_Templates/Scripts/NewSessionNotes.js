@@ -1,0 +1,61 @@
+module.exports = async (params) => {
+  const { app, quickAddApi: qa } = params;
+
+  const partyName = await selectFromFolder(app, qa, "Campaign/Parties/Party Dashboards", "Party", true);
+  if (partyName === null) return;
+
+  const sessionNum = getNextSessionNumber(app);
+
+  const name = await qa.inputPrompt("New Session Notes", `Enter session title (e.g. Session ${sessionNum})...`);
+  if (!name) return;
+
+  const destPath = `Campaign/Parties/Session Notes/${name}.md`;
+  if (app.vault.getAbstractFileByPath(destPath)) {
+    new Notice(`"${name}" already exists!`);
+    return;
+  }
+
+  const tpl = app.vault.getAbstractFileByPath("z_Templates/Story/Template - Session Notes.md");
+  if (!tpl) { new Notice("Session Notes template not found!"); return; }
+
+  let content = await app.vault.read(tpl);
+  if (partyName) content = setListField(content, "whichParty", partyName);
+  content = content.replace(/^sessionNumber:.*$/m, `sessionNumber: ${sessionNum}`);
+
+  const today = new Date().toISOString().split("T")[0];
+  content = content.replace(/^sessionDate:.*$/m, `sessionDate: ${today}`);
+
+  const file = await app.vault.create(destPath, content);
+  await app.workspace.getLeaf().openFile(file);
+  new Notice(`"${name}" created (Session ${sessionNum})!`);
+};
+
+function getNextSessionNumber(app) {
+  const folder = app.vault.getAbstractFileByPath("Campaign/Parties/Session Notes");
+  if (!folder?.children) return 1;
+  return folder.children.filter(f => !("children" in f) && f.extension === "md").length + 1;
+}
+
+async function selectFromFolder(app, qa, folderPath, label, allowSkip = false) {
+  const folder = app.vault.getAbstractFileByPath(folderPath);
+  const existing = (folder?.children || [])
+    .filter(f => !("children" in f) && f.extension === "md")
+    .map(f => f.basename);
+  const SKIP = "[ None / Skip ]";
+  const NEW = "＋ Enter New Name";
+  const opts = [...existing];
+  if (allowSkip) opts.push(SKIP);
+  opts.push(NEW);
+  const choice = await qa.suggester(opts, opts);
+  if (!choice) return null;
+  if (choice === SKIP) return "";
+  if (choice === NEW) {
+    const n = await qa.inputPrompt(`${label} Name`, "Enter name...");
+    return n || null;
+  }
+  return choice;
+}
+
+function setListField(content, field, value) {
+  return content.replace(new RegExp(`^${field}:.*$`, "m"), `${field}:\n  - "[[${value}]]"`);
+}

@@ -1,0 +1,15 @@
+properties:
+  file.name:
+    displayName: Name
+views:
+  - type: cards
+    name: Parties
+    filters:
+      and:
+        - tags.contains("Party")
+        - file.folder.contains("Campaign")
+    order:
+      - file.name
+    image: note.art
+    imageFit: ""
+    cardSize: 250

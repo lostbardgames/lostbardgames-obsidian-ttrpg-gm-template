@@ -1,0 +1,22 @@
+# ── macOS ─────────────────────────────────────────────────────────────────────
+.DS_Store
+**/.DS_Store
+
+# ── Obsidian session state (user-specific, auto-regenerated) ──────────────────
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/ddb-config.json
+
+# ── User data & vault backups ─────────────────────────────────────────────────
+.trash/
+.vault-backups/
+z_Uncategoried/
+
+# ── Python cache ──────────────────────────────────────────────────────────────
+__pycache__/
+*.pyc
+
+# ── Build artifacts (generated at release time) ───────────────────────────────
+*.bak
+TTRPG-Vault-*.zip
+files.json

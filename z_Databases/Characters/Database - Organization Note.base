@@ -1,0 +1,175 @@
+properties:
+  file.name:
+    displayName: Name
+  property.aliases:
+    displayName: Aliases
+  property.occupation:
+    displayName: Occupation
+  property.currentLocation:
+    displayName: Location
+  property.organizationTypes:
+    displayName: Type
+  property.districttype:
+    displayName: Type
+  property.settlementType:
+    displayName: Type
+  property.dominion:
+    displayName: Dominion
+  property.terrain:
+    displayName: Terrain
+  property.poiTypes:
+    displayName: Type
+  note.aliases:
+    displayName: Aliases
+  note.occupation:
+    displayName: Occupation
+  note.currentLocation:
+    displayName: Location
+  note.organizationTypes:
+    displayName: Types
+  note.poiTypes:
+    displayName: Types
+  note.settlementType:
+    displayName: Types
+  note.dominion:
+    displayName: Dominion
+  note.terrain:
+    displayName: Terrain
+views:
+  - type: table
+    name: Characters
+    filters:
+      and:
+        - file.inFolder("Campaign/Characters")
+        - organizations.contains(this)
+        - '!condition.contains("Dead")'
+    order:
+      - file.name
+      - aliases
+      - occupation
+      - currentLocation
+    columnSize:
+      file.name: 151
+      note.occupation: 161
+      note.currentLocation: 243
+  - type: table
+    name: Child Organizations
+    filters:
+      and:
+        - file.inFolder("Campaign/Organizations")
+        - organizations.contains(this)
+    order:
+      - file.name
+      - aliases
+      - organizationTypes
+    columnSize:
+      file.name: 257
+      property.aliases: 288
+      property.organizationTypes: 161
+  - type: table
+    name: Points of Interest
+    filters:
+      and:
+        - file.inFolder("Campaign/Points of Interest")
+        - organizations.contains(this)
+    order:
+      - file.name
+      - aliases
+      - poiTypes
+      - currentLocation
+    columnSize:
+      file.name: 212
+      note.poiTypes: 229
+      note.currentLocation: 243
+  - type: table
+    name: Districts
+    filters:
+      and:
+        - file.inFolder("Campaign/Districts")
+        - organizations.contains(this)
+    order:
+      - file.name
+      - aliases
+      - districttype
+      - currentLocation
+    columnSize:
+      file.name: 212
+      property.aliases: 182
+      property.districttype: 140
+      property.currentLocation: 240
+  - type: table
+    name: Settlements
+    filters:
+      and:
+        - file.inFolder("Campaign/Settlements")
+        - organizations.contains(this)
+    order:
+      - file.name
+      - aliases
+      - settlementType
+      - currentLocation
+      - dominion
+    columnSize:
+      file.name: 151
+      note.settlementType: 158
+      note.currentLocation: 243
+  - type: table
+    name: Areas
+    filters:
+      and:
+        - file.inFolder("Campaign/Areas")
+        - organizations.contains(this)
+    order:
+      - file.name
+      - aliases
+      - terrain
+      - currentLocation
+      - dominion
+    columnSize:
+      file.name: 151
+      property.aliases: 189
+      property.terrain: 154
+      property.currentLocation: 168
+  - type: table
+    name: Regions
+    filters:
+      and:
+        - file.inFolder("Campaign/Regions")
+        - organizations.contains(this)
+    order:
+      - file.name
+      - aliases
+      - terrain
+      - currentLocation
+      - dominion
+    columnSize:
+      file.name: 151
+      property.aliases: 189
+      property.terrain: 154
+      property.currentLocation: 168
+  - type: table
+    name: Topography
+    filters:
+      and:
+        - file.inFolder("Campaign/Topography")
+        - organizations.contains(this)
+    order:
+      - file.name
+      - aliases
+      - terrain
+      - currentLocation
+      - dominion
+    columnSize:
+      file.name: 151
+      property.aliases: 189
+      property.terrain: 154
+      property.currentLocation: 168
+  - type: table
+    name: Trade Partners
+    filters:
+      and:
+        - tradePartners.contains(this)
+        - or:
+            - file.inFolder("Campaign/Organizations")
+            - file.inFolder("Campaign/Points of Interest")
+            - file.inFolder("Campaign/Settlements")
