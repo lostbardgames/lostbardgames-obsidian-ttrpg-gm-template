@@ -174,6 +174,35 @@ The **Reset Vault** button (Buttons.md → Vault section) wipes campaign data wh
 
 ---
 
+## Updating the Vault
+
+From **v1.0.9** onwards, the vault includes a built-in updater. Open **1.Tools/Buttons.md**, scroll to the **Vault** section, and click **Check for Updates**. The updater will:
+
+- Compare your local files against the latest release using SHA-256 checksums
+- Show you a changelog and a list of files that will change before anything is touched
+- Warn you if any files you may have customized (Homepage, Buttons, GM Screen, etc.) are about to be replaced, and back them up first
+- Move any custom templates you've added to `z_Templates/` into `z_Templates/_my_templates/` so they are never deleted
+- Never touch your campaign data (Characters, Organizations, Worlds, etc.)
+
+### Migrating from v1.0.3 or earlier
+
+The updater in older vault versions has a bug that prevents it from running. You need to replace one file manually before the updater will work:
+
+**Terminal (fastest):**
+```bash
+curl -L "https://raw.githubusercontent.com/lostbardgames/obsidian-ttrpg-vault/main/z_Templates/Scripts/UpdateVault.js" \
+  -o "<path-to-your-vault>/z_Templates/Scripts/UpdateVault.js"
+```
+
+**Manual download:**
+1. Open this URL in your browser: `https://raw.githubusercontent.com/lostbardgames/obsidian-ttrpg-vault/main/z_Templates/Scripts/UpdateVault.js`
+2. Save the page (Cmd+S / Ctrl+S) as `UpdateVault.js`
+3. Replace the file at `<your-vault>/z_Templates/Scripts/UpdateVault.js`
+4. Reload Obsidian
+5. Run **Check for Updates** — it will complete successfully and upgrade you to the latest version
+
+---
+
 ## Support
 
 For plugin-specific issues, refer to the documentation linked in **Settings → Community Plugins**. The [Obsidian community forum](https://forum.obsidian.md) is also an excellent resource.
