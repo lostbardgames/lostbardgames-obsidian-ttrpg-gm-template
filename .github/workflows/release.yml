@@ -137,8 +137,8 @@ jobs:
           echo "{\"version\": \"${VERSION}\"}" > version.json
 
       # ── Build release zip ─────────────────────────────────────────────────────
-      # Wraps vault contents inside a TTRPG/ folder so users can extract and
-      # use the folder directly as their Obsidian vault.
+      # Wraps vault contents inside "LBG TTRPG GM Template/" so the extracted
+      # folder is ready to open directly as an Obsidian vault.
       - name: Build release zip
         run: |
           TAG="${GITHUB_REF_NAME}"
@@ -147,8 +147,9 @@ jobs:
           python3 - <<PYEOF
           import os, zipfile, fnmatch
 
-          OUTPUT    = "$OUTPUT"
-          WORKSPACE = "$GITHUB_WORKSPACE"
+          OUTPUT      = "$OUTPUT"
+          WORKSPACE   = "$GITHUB_WORKSPACE"
+          FOLDER_NAME = "LBG TTRPG GM Template"
 
           SKIP_DIRS = {".git", ".github", "__pycache__", ".vault-backups", ".trash"}
           SKIP_PATS = [
@@ -171,7 +172,7 @@ jobs:
                       rel = os.path.relpath(abs_path, ".").replace("\\\\", "/")
                       if any(fnmatch.fnmatch(rel, p) for p in SKIP_PATS):
                           continue
-                      zf.write(abs_path, f"TTRPG/{rel}")
+                      zf.write(abs_path, f"{FOLDER_NAME}/{rel}")
 
           size_mb = os.path.getsize(OUTPUT) // (1024 * 1024)
           print(f"Built {os.path.basename(OUTPUT)} ({size_mb} MB)")
