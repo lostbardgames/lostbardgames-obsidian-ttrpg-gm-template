@@ -318,6 +318,8 @@
 > >     command: quickadd:choice:a1b2c3d4-0001-4000-8000-000000000032
 > > ```
 > >
+> > 📦 **Installed version:** v`$= JSON.parse(await app.vault.adapter.read("version.json")).version`
+> >
 > > Checks GitHub for a newer version and walks you through the update. Templates, scripts, CSS snippets, and guide files are updated automatically. Tool files (Homepage, Buttons, GM Screen) are optional — they are backed up as `.bak` files before being overwritten.
 > >
 > > Your campaign data (`Campaign/`, `z_Databases/`, `z_Assets/`) is **never touched**. Requires an internet connection and Python 3.
