@@ -1,7 +1,18 @@
 <%*
-// Ensure Buttons.md is open in a split pane alongside Homepage.
-// This runs every time the vault opens; it skips silently if Buttons is
-// already visible (so returning users see no disruption).
+// ── First-launch auto-reload ──────────────────────────────────────────────
+// .obsidian/first-load is shipped in the vault zip. When it exists, this
+// is the first run after the user trusted plugin authors. Delete the marker
+// and reload so every plugin initialises cleanly with the correct layout.
+const MARKER = ".obsidian/first-load";
+if (await app.vault.adapter.exists(MARKER)) {
+    await app.vault.adapter.remove(MARKER);
+    app.commands.executeCommandById("app:reload");
+    return;
+}
+
+// ── Default split layout ──────────────────────────────────────────────────
+// After reload (or on any subsequent open), ensure Buttons.md is visible
+// in a split pane beside Homepage. Skip silently if it is already open.
 await new Promise(r => setTimeout(r, 400));
 
 const buttonPath = "1.Tools/Buttons.md";
