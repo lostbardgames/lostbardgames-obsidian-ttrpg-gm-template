@@ -46,6 +46,14 @@
 > >   - type: command
 > >     command: quickadd:choice:a1b2c3d4-0001-4000-8000-000000000004
 > > ```
+> >
+> > ```meta-bind-button
+> > label: "Import Character from D&D Beyond"
+> > style: primary
+> > actions:
+> >   - type: command
+> >     command: quickadd:choice:a1b2c3d4-0001-4000-8000-000000000033
+> > ```
 
 ---
 
@@ -295,14 +303,6 @@
 > > actions:
 > >   - type: command
 > >     command: quickadd:choice:a1b2c3d4-0001-4000-8000-000000000031
-> > ```
-> >
-> > ```meta-bind-button
-> > label: "Import Character from D&D Beyond"
-> > style: primary
-> > actions:
-> >   - type: command
-> >     command: quickadd:choice:a1b2c3d4-0001-4000-8000-000000000033
 > > ```
 > >
 > > Walks you through four steps:

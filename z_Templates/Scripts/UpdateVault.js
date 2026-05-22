@@ -123,6 +123,19 @@ module.exports = async (params) => {
         return;
     }
 
+    // ── Delete retired files (JS-side, so it always runs on the current script) ──
+    const toDelete = check.delete || [];
+    for (const rel of toDelete) {
+        const exists = await app.vault.adapter.exists(rel);
+        if (exists) {
+            try {
+                await app.vault.adapter.remove(rel);
+            } catch (e) {
+                console.error(`UpdateVault: could not delete ${rel}:`, e);
+            }
+        }
+    }
+
     // ── Show result ───────────────────────────────────────────────────────────
     if (result.status === "success" || result.status === "partial") {
         const count     = (result.updated                  || []).length;

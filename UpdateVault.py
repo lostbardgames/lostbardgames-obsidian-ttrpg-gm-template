@@ -460,6 +460,7 @@ def cmd_check(vault_path):
         "customized_files": customized_files,
         "manifest_url":     manifest_asset["browser_download_url"],
         "zip_url":          zip_url,
+        "delete":           manifest.get("delete", []),
     }
 
 
