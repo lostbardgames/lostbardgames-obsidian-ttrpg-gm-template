@@ -20,7 +20,7 @@ module.exports = async (params) => {
   if (className) content = setSingleField(content, "parentclass", className);
 
   const file = await app.vault.create(destPath, content);
-  await app.workspace.getLeaf().openFile(file);
+  await getMainLeaf(app).openFile(file);
   new Notice(`"${name}" created!`);
 };
 
@@ -46,4 +46,13 @@ async function selectFromFolder(app, qa, folderPath, label, allowSkip = false) {
 
 function setSingleField(content, field, value) {
   return content.replace(new RegExp(`^(${field}):.*$`, "m"), `$1: "[[${value}]]"`);
+}
+
+// Opens a file in the main pane rather than the Buttons panel.
+// Finds the first markdown leaf that isn't Buttons.md; falls back to
+// whatever leaf Obsidian would pick by default.
+function getMainLeaf(app) {
+  return app.workspace.getLeavesOfType("markdown")
+    .find(l => l.view?.file?.path !== "1.Tools/Buttons.md")
+    ?? app.workspace.getLeaf();
 }

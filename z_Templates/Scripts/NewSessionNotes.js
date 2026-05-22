@@ -26,7 +26,7 @@ module.exports = async (params) => {
   content = content.replace(/^sessionDate:.*$/m, `sessionDate: ${today}`);
 
   const file = await app.vault.create(destPath, content);
-  await app.workspace.getLeaf().openFile(file);
+  await getMainLeaf(app).openFile(file);
   new Notice(`"${name}" created (Session ${sessionNum})!`);
 };
 
@@ -58,4 +58,13 @@ async function selectFromFolder(app, qa, folderPath, label, allowSkip = false) {
 
 function setListField(content, field, value) {
   return content.replace(new RegExp(`^${field}:.*$`, "m"), `${field}:\n  - "[[${value}]]"`);
+}
+
+// Opens a file in the main pane rather than the Buttons panel.
+// Finds the first markdown leaf that isn't Buttons.md; falls back to
+// whatever leaf Obsidian would pick by default.
+function getMainLeaf(app) {
+  return app.workspace.getLeavesOfType("markdown")
+    .find(l => l.view?.file?.path !== "1.Tools/Buttons.md")
+    ?? app.workspace.getLeaf();
 }

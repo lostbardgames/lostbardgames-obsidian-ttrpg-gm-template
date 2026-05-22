@@ -52,7 +52,7 @@ module.exports = async (params) => {
   const existing = app.vault.getAbstractFileByPath(pcPath);
   if (existing) {
     new Notice(`"${characterName}" already exists in ${selectedParty}!`);
-    await app.workspace.getLeaf().openFile(existing);
+    await getMainLeaf(app).openFile(existing);
     return;
   }
 
@@ -72,7 +72,7 @@ module.exports = async (params) => {
   );
 
   const pcFile = await app.vault.create(pcPath, content);
-  await app.workspace.getLeaf().openFile(pcFile);
+  await getMainLeaf(app).openFile(pcFile);
   new Notice(`"${characterName}" added to ${selectedParty}!`);
 };
 
@@ -102,7 +102,7 @@ async function createParty(app, partyName) {
   content = content.replace(/^partyID:\s*$/m, `partyID: ${partyN}`);
 
   const dashFile = await app.vault.create(dashboardPath, content);
-  await app.workspace.getLeaf().openFile(dashFile);
+  await getMainLeaf(app).openFile(dashFile);
   new Notice(`Party "${partyName}" created (ID: ${partyN})! Now add your character.`);
 }
 
@@ -249,4 +249,13 @@ views:
     image: note.art
     cardSize: 100
 `;
+}
+
+// Opens a file in the main pane rather than the Buttons panel.
+// Finds the first markdown leaf that isn't Buttons.md; falls back to
+// whatever leaf Obsidian would pick by default.
+function getMainLeaf(app) {
+  return app.workspace.getLeavesOfType("markdown")
+    .find(l => l.view?.file?.path !== "1.Tools/Buttons.md")
+    ?? app.workspace.getLeaf();
 }
