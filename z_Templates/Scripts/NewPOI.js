@@ -44,14 +44,40 @@ async function selectParentLocation(app, qa) {
   }
   existing.sort();
   const SKIP = "[ None / Skip ]";
-  const NEW = "＋ Enter New Name";
+  const NEW = "＋ Create New Location";
   const opts = [...existing, SKIP, NEW];
   const choice = await qa.suggester(opts, opts);
   if (!choice) return null;
   if (choice === SKIP) return "";
   if (choice === NEW) {
-    const n = await qa.inputPrompt("Parent Location Name", "Enter location name...");
-    return n || null;
+    const n = await qa.inputPrompt("New Location Name", "Enter location name...");
+    if (!n) return null;
+
+    // Ask what type of location to create
+    const typeOpts = ["Settlement", "District", "Area"];
+    const type = await qa.suggester(typeOpts, typeOpts);
+    if (!type) return null;
+
+    const templateMap = {
+      "Settlement": "z_Templates/Locations/Template - Settlement.md",
+      "District":   "z_Templates/Locations/Template - District.md",
+      "Area":       "z_Templates/Locations/Template - Area.md",
+    };
+    const folderMap = {
+      "Settlement": "Campaign/Settlements",
+      "District":   "Campaign/Districts",
+      "Area":       "Campaign/Areas",
+    };
+
+    const destPath = `${folderMap[type]}/${n}.md`;
+    if (!app.vault.getAbstractFileByPath(destPath)) {
+      const tpl = app.vault.getAbstractFileByPath(templateMap[type]);
+      const content = tpl ? await app.vault.read(tpl) : `---\ntags:\n  - ${type}\n---\n\n# ${n}\n\n`;
+      await app.vault.create(destPath, content);
+      new Notice(`${type} "${n}" created!`);
+    }
+
+    return n;
   }
   return choice;
 }
