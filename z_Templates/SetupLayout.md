@@ -13,21 +13,32 @@ if (await app.vault.adapter.exists(MARKER)) {
 // ── Default split layout ──────────────────────────────────────────────────
 // After reload (or on any subsequent open), ensure Buttons.md is visible
 // in a split pane beside Homepage. Skip silently if it is already open.
-await new Promise(r => setTimeout(r, 600));
+// Wait long enough for all startup plugins (including Homepage) to finish.
+await new Promise(r => setTimeout(r, 800));
 
-const buttonPath = "1.Tools/Buttons.md";
-const buttonFile = app.vault.getAbstractFileByPath(buttonPath);
+const buttonPath   = "1.Tools/Buttons.md";
+const homepagePath = "1.Tools/Homepage.md";
+const buttonFile   = app.vault.getAbstractFileByPath(buttonPath);
 if (!buttonFile) return;
 
+// ── Deduplicate Homepage.md ───────────────────────────────────────────────
+// The Homepage plugin opens a fresh copy on every reload. After an update-
+// triggered reload the workspace already has the previous session's leaves,
+// so the plugin creates a second Homepage.md tab in the main pane.
+// Always close any extras so only one copy remains.
+const homeLeaves = app.workspace.getLeavesOfType("markdown")
+    .filter(l => l.view?.file?.path === homepagePath);
+for (const leaf of homeLeaves.slice(1)) {
+    leaf.detach();
+}
+
+// ── Open Buttons.md in a split if not already visible ────────────────────
 const alreadyOpen = app.workspace.getLeavesOfType("markdown")
     .some(l => l.view?.file?.path === buttonPath);
 if (alreadyOpen) return;
 
 // Remember the active leaf before splitting so we can restore focus.
-// The Homepage plugin opens Homepage.md in whatever leaf is active —
-// if we leave the new right-pane leaf active it will put Homepage on
-// the right instead of the left.
-const activeLeaf = app.workspace.getMostRecentLeaf();
+const activeLeaf = homeLeaves[0] ?? app.workspace.getMostRecentLeaf();
 
 const leaf = app.workspace.getLeaf("split", "vertical");
 await leaf.openFile(buttonFile, { state: { mode: "preview" } });
