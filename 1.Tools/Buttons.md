@@ -297,6 +297,14 @@
 > >     command: quickadd:choice:a1b2c3d4-0001-4000-8000-000000000031
 > > ```
 > >
+> > ```meta-bind-button
+> > label: "Import Character from D&D Beyond"
+> > style: primary
+> > actions:
+> >   - type: command
+> >     command: quickadd:choice:a1b2c3d4-0001-4000-8000-000000000033
+> > ```
+> >
 > > Walks you through four steps:
 > > 1. **Source** — WotC official (all books), specific books (pick exactly which ones), or all sources including third-party
 > > 2. **Books** *(specific mode only)* — multi-select from PHB, XGE, TCE, DMG, CoS, and 30+ more
