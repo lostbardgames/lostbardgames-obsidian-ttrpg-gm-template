@@ -54,6 +54,7 @@ PROTECTED_DIRS = [
 OBSIDIAN_ALLOWED = [
     os.path.join(".obsidian", "snippets", "TTRPG-Icons.css"),
     os.path.join(".obsidian", "snippets", "TTRPG-Folders.css"),
+    os.path.join(".obsidian", "plugins", "quickadd", "data.json"),
 ]
 
 # These files may have been customized by the user — always back up,

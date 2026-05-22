@@ -43,6 +43,7 @@ jobs:
               "UpdateVault.py",
               ".obsidian/snippets/TTRPG-Icons.css",
               ".obsidian/snippets/TTRPG-Folders.css",
+              ".obsidian/plugins/quickadd/data.json",  # QuickAdd macro definitions
               "z_Templates",           # directory — entire tree replaced
               "z_Uncategoried/.gitkeep",  # ensures the folder exists for all users
           ]
@@ -69,6 +70,7 @@ jobs:
           OBSIDIAN_ALLOWED = [
               ".obsidian/snippets/TTRPG-Icons.css",
               ".obsidian/snippets/TTRPG-Folders.css",
+              ".obsidian/plugins/quickadd/data.json",
           ]
 
           # Files users may customize — always backed up before overwriting
@@ -78,6 +80,7 @@ jobs:
               "1.Tools/GM Screen.md",
               "HOW TO USE.md",
               "START HERE.md",
+              ".obsidian/plugins/quickadd/data.json",
           ]
 
           # Dirs to skip entirely during walk
@@ -92,6 +95,10 @@ jobs:
               ".obsidian/plugins/",
               ".obsidian/themes/",
           )
+          # Specific files inside skipped prefixes that ARE included
+          SKIP_PREFIX_ALLOW = {
+              ".obsidian/plugins/quickadd/data.json",
+          }
           SKIP_SUFFIXES = (".pyc", ".bak", ".DS_Store")
           # Never include version.json — stamped fresh at release time
           # README.md is GitHub-only — excluded from manifest and from zip
@@ -112,7 +119,7 @@ jobs:
                   rel = os.path.relpath(abs_path, VAULT_DIR).replace("\\", "/")
                   if rel in SKIP_EXACT:
                       continue
-                  if any(rel.startswith(p) for p in SKIP_PREFIXES):
+                  if rel not in SKIP_PREFIX_ALLOW and any(rel.startswith(p) for p in SKIP_PREFIXES):
                       continue
                   if any(rel.endswith(s) for s in SKIP_SUFFIXES):
                       continue
