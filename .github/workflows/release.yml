@@ -43,7 +43,13 @@ jobs:
               "UpdateVault.py",
               ".obsidian/snippets/TTRPG-Icons.css",
               ".obsidian/snippets/TTRPG-Folders.css",
-              "z_Templates",   # directory — entire tree replaced
+              "z_Templates",           # directory — entire tree replaced
+              "z_Uncategoried/.gitkeep",  # ensures the folder exists for all users
+          ]
+
+          # Files to DELETE from existing vaults (GitHub-only or retired files)
+          DELETE = [
+              "README.md",
           ]
 
           # Paths updated only when user opts in
@@ -88,7 +94,8 @@ jobs:
           )
           SKIP_SUFFIXES = (".pyc", ".bak", ".DS_Store")
           # Never include version.json — stamped fresh at release time
-          SKIP_EXACT = {"version.json"}
+          # README.md is GitHub-only — excluded from manifest and from zip
+          SKIP_EXACT = {"version.json", "README.md"}
 
           def sha256(path):
               h = hashlib.sha256()
@@ -119,6 +126,7 @@ jobs:
                   "always":        ALWAYS,
                   "user_optional": USER_OPTIONAL,
               },
+              "delete":            DELETE,
               "protected_dirs":    PROTECTED_DIRS,
               "obsidian_allowed":  OBSIDIAN_ALLOWED,
               "user_customizable": USER_CUSTOMIZABLE,

@@ -564,6 +564,18 @@ def cmd_confirm(vault_path, new_version, update_tools, manifest_url):
             eprint(f"    {'Restored from backup.' if restored else 'Could not restore.'}")
             failed.append(rel)
 
+    # ── Delete retired files ───────────────────────────────────────────────────
+    deleted_files = []
+    for rel in manifest.get("delete", []):
+        local_path = os.path.join(vault_path, rel)
+        if os.path.isfile(local_path):
+            try:
+                os.remove(local_path)
+                deleted_files.append(rel)
+                eprint(f"  ✓ Removed {rel}")
+            except Exception as e:
+                eprint(f"  ✗ Could not remove {rel}: {e}")
+
     # ── Stamp new version ──────────────────────────────────────────────────────
     try:
         with open(os.path.join(vault_path, "version.json"), "w") as fh:
@@ -583,6 +595,7 @@ def cmd_confirm(vault_path, new_version, update_tools, manifest_url):
         "updated":     updated,
         "failed":      failed,
         "blocked":     blocked,
+        "deleted":     deleted_files,
         "backed_up_to": backup_folder,
         "old_backups_cleaned": old_backups_cleaned,
         "user_templates_preserved": preserved_templates,
