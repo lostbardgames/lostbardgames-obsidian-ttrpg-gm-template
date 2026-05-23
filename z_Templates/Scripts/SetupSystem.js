@@ -686,18 +686,84 @@ function buildImportSection(system) {
     return "> > " + buttons.join("\n> >\n> > ");
 }
 
+// ── Folder cleanup helpers ────────────────────────────────────────────────────
+
+/** Returns true if a folder (or any descendant) contains at least one .md file. */
+function folderHasContent(folder) {
+    if (!folder?.children) return false;
+    for (const child of folder.children) {
+        if ("children" in child) {
+            if (folderHasContent(child)) return true;
+        } else if (child.extension === "md") {
+            return true;
+        }
+    }
+    return false;
+}
+
+/**
+ * Remove lore folders that belonged to the old system but not the new one,
+ * provided they contain no user-created .md files.
+ * Deepest paths are removed first so parent folders empty out before we
+ * attempt to delete them.
+ */
+async function cleanupOldFolders(app, oldSystemId, newSystem) {
+    if (!oldSystemId) return;
+
+    const oldSystem = SYSTEMS.find(s => s.id === oldSystemId);
+    if (!oldSystem) return;
+
+    const newSet = new Set(newSystem.loreFolders);
+    const toRemove = oldSystem.loreFolders
+        .filter(f => !newSet.has(f))
+        // deepest first
+        .sort((a, b) => b.split("/").length - a.split("/").length);
+
+    let removed = 0;
+    for (const folderPath of toRemove) {
+        const folder = app.vault.getAbstractFileByPath(folderPath);
+        if (!folder || !("children" in folder)) continue;
+        if (folderHasContent(folder)) {
+            console.log(`[SetupSystem] Keeping ${folderPath} — contains user notes`);
+            continue;
+        }
+        try {
+            await app.vault.delete(folder, true /* recursive */);
+            removed++;
+            console.log(`[SetupSystem] Removed empty folder: ${folderPath}`);
+        } catch (e) {
+            console.warn(`[SetupSystem] Could not remove ${folderPath}:`, e);
+        }
+    }
+    return removed;
+}
+
 // ── Core Setup Function ───────────────────────────────────────────────────────
 
 async function runSetup(app, qa, system, isReconfig) {
     const notice = new Notice(`⚙️ Configuring vault for ${system.name}…`, 0);
 
     try {
-        // 1. Create lore folders
+        // 0. Read old system ID for cleanup (before we overwrite vault-config.json)
+        let oldSystemId = null;
+        try {
+            const cfg = JSON.parse(await app.vault.adapter.read("vault-config.json"));
+            if (cfg.gameSystem && cfg.gameSystem !== system.id) {
+                oldSystemId = cfg.gameSystem;
+            }
+        } catch (_) {}
+
+        // 1. Remove empty folders from the previous system that the new system doesn't use
+        if (oldSystemId) {
+            await cleanupOldFolders(app, oldSystemId, system);
+        }
+
+        // 2. Create lore folders for the new system
         for (const folder of system.loreFolders) {
             try { await app.vault.createFolder(folder); } catch (_) { /* already exists */ }
         }
 
-        // 2. Copy PC template
+        // 3. Copy PC template
         const pcSrc = app.vault.getAbstractFileByPath(system.pcTemplate);
         if (pcSrc) {
             const pcContent = await app.vault.read(pcSrc);
@@ -710,7 +776,7 @@ async function runSetup(app, qa, system, isReconfig) {
             }
         }
 
-        // 3. Copy PF2e-specific lore templates if needed
+        // 4. Copy PF2e-specific lore templates if needed
         if (system.id === "pf2e") {
             const pf2eTemplates = [
                 { src: "z_Templates/Systems/pf2e/Template - Ancestry.md",  dest: "z_Templates/Lore/Template - Ancestry.md" },
@@ -730,7 +796,7 @@ async function runSetup(app, qa, system, isReconfig) {
             }
         }
 
-        // 4. Update Buttons.md lore section and import section
+        // 5. Update Buttons.md lore section and import section
         const buttonsPath = "1.Tools/Buttons.md";
         const buttonsFile = app.vault.getAbstractFileByPath(buttonsPath);
         if (buttonsFile) {
@@ -763,7 +829,7 @@ async function runSetup(app, qa, system, isReconfig) {
             await app.vault.modify(buttonsFile, content);
         }
 
-        // 5. Write vault-config.json
+        // 6. Write vault-config.json
         const configPath = "vault-config.json";
         const configContent = JSON.stringify({
             gameSystem: system.id,

@@ -10,6 +10,7 @@ species:
 class:
 subclass:
 background:
+originFeat:
 alignment:
 gender:
 pronouns:
@@ -26,7 +27,6 @@ currentLocation: []
 whichParty: []
 level: 1
 experience: 0
-experience_next: 300
 proficiencyBonus: 2
 passivePerception: 10
 passiveInsight: 10
@@ -63,6 +63,7 @@ spell_attack_bonus: 0
 > | **Class** | `VIEW[{class}][link]` |
 > | **Subclass** | `VIEW[{subclass}][link]` |
 > | **Background** | `VIEW[{background}][link]` |
+> | **Origin Feat** | `VIEW[{originFeat}][link]` |
 > | **Alignment** | `VIEW[{alignment}][text]` |
 > | **Gender** | `VIEW[{gender}][text]` |
 > | **Pronouns** | `VIEW[{pronouns}][text]` |
@@ -83,7 +84,7 @@ spell_attack_bonus: 0
 > | | |
 > |---|---|
 > | **Level** | `VIEW[{level}]` |
-> | **XP** | `VIEW[{experience}]` / `VIEW[{experience_next}]` |
+> | **XP** | `VIEW[{experience}]` |
 > | **HP** | `VIEW[{hp_current}]` / `VIEW[{hp_max}]` (Temp: `VIEW[{hp_temp}]`) |
 > | **AC** | `VIEW[{ac}]` |
 > | **Speed** | `VIEW[{speed}]` ft |
@@ -135,13 +136,17 @@ spell_attack_bonus: 0
 
 ## Features, Traits & Proficiencies
 
+### Origin Feat
+
+> *<font color="#646a73">Every 2024 character gains one feat from their background at 1st level (the "origin feat"). Note it here with its effects.</font>*
+
 ### Class Features & Traits
 
-> *<font color="#646a73">List key class features, subclass features, racial traits, and background features by level.</font>*
+> *<font color="#646a73">List key class features, subclass features, species traits, and background features by level.</font>*
 
 ### Feats
 
-> *<font color="#646a73">List any feats this character has taken.</font>*
+> *<font color="#646a73">List any additional feats this character has taken beyond the origin feat.</font>*
 
 ### Proficiencies
 
@@ -216,4 +221,3 @@ SORT sessionNumber DESC
 ```
 
 ## Notes
-

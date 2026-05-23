@@ -148,7 +148,7 @@
 > > ```
 > >
 > > ```meta-bind-button
-> > label: "New Race"
+> > label: "New Species"
 > > style: primary
 > > actions:
 > >   - type: command
@@ -197,14 +197,6 @@
 > > actions:
 > >   - type: command
 > >     command: quickadd:choice:a1b2c3d4-0001-4000-8000-000000000021
-> > ```
-> >
-> > ```meta-bind-button
-> > label: "New Optional Feature"
-> > style: primary
-> > actions:
-> >   - type: command
-> >     command: quickadd:choice:a1b2c3d4-0001-4000-8000-000000000022
 > > ```
 
 <!-- SYSTEM-LORE-END -->

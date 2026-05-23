@@ -84,10 +84,6 @@
       "color": "#fdcb6e"
     },
     {
-      "path": "Campaign/Lore/Races",
-      "color": "#00cec9"
-    },
-    {
       "path": "Campaign/Lore/Backgrounds",
       "color": "#c9a84c"
     },
@@ -102,10 +98,6 @@
     {
       "path": "Campaign/Lore/Events",
       "color": "#74b9ff"
-    },
-    {
-      "path": "Campaign/Lore/Optional Features",
-      "color": "#a29bfe"
     },
     {
       "path": "Campaign/Possessions/Items",

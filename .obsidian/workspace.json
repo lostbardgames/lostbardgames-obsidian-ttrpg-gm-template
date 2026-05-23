@@ -1,20 +1,20 @@
 {
   "main": {
-    "id": "a1b2c3d4e5f60001",
+    "id": "cfa5d8563daec4fa",
     "type": "split",
     "children": [
       {
-        "id": "a1b2c3d4e5f60002",
+        "id": "3a8b817ed2057c0c",
         "type": "tabs",
         "children": [
           {
-            "id": "a1b2c3d4e5f60003",
+            "id": "6fb1e11ba78b205f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
                 "file": "1.Tools/Homepage.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
@@ -22,20 +22,20 @@
             }
           }
         ]
-      },
+      }
     ],
     "direction": "vertical"
   },
   "left": {
-    "id": "a1b2c3d4e5f60006",
+    "id": "8998053dcf2e4191",
     "type": "split",
     "children": [
       {
-        "id": "a1b2c3d4e5f60007",
+        "id": "2fee06b3c0254fb4",
         "type": "tabs",
         "children": [
           {
-            "id": "a1b2c3d4e5f60008",
+            "id": "1556901438cf0df8",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -48,7 +48,7 @@
             }
           },
           {
-            "id": "a1b2c3d4e5f60009",
+            "id": "dfc636be4a85ea59",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -71,15 +71,15 @@
     "width": 300
   },
   "right": {
-    "id": "a1b2c3d4e5f60010",
+    "id": "1634efb884c5aa75",
     "type": "split",
     "children": [
       {
-        "id": "a1b2c3d4e5f60011",
+        "id": "83eaec4d97e8cd1b",
         "type": "tabs",
         "children": [
           {
-            "id": "a1b2c3d4e5f60005",
+            "id": "45022b07e8ef0f89",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -93,42 +93,48 @@
             }
           },
           {
-            "id": "a1b2c3d4e5f60014",
+            "id": "82a4403782269920",
             "type": "leaf",
             "state": {
               "type": "DICE_ROLLER_VIEW",
               "state": {},
-              "icon": "dice",
+              "icon": "dices",
               "title": "Dice Tray"
             }
           }
-        ],
-        "currentTab": 0
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 320,
-    "collapsed": false
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
+      "obsidian-excalidraw-plugin:New drawing": false,
+      "templater-obsidian:Templater": false,
+      "obsidian-5e-statblocks:Open Creature pane": false,
+      "obsidian-leaflet-plugin:Open Leaflet Map": false,
+      "homepage:Open homepage": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
       "command-palette:Open command palette": false,
       "workspaces:Manage workspace layouts": false,
       "bases:Create new base": false,
-      "obsidian-excalidraw-plugin:New drawing": false,
-      "templater-obsidian:Templater": false,
-      "obsidian-5e-statblocks:Open Creature pane": false,
-      "obsidian-leaflet-plugin:Open Leaflet Map": false,
-      "calendarium:Open Calendarium": false,
-      "homepage:Open homepage": false
+      "calendarium:Open Calendarium": false
     }
   },
-  "active": "a1b2c3d4e5f60003",
+  "active": "6fb1e11ba78b205f",
   "lastOpenFiles": [
-    "1.Tools/Buttons.md",
-    "1.Tools/Homepage.md"
+    "Campaign/Lore/Species",
+    "1.Tools/Homepage.md",
+    "z_Templates/Lore/Template - Action.md",
+    "z_Templates/Lore/Template - Heritage.md",
+    "z_Templates/Lore/Template - Ancestry.md",
+    "Campaign/Lore/Actions",
+    "Campaign/Lore/Classes/Features",
+    "Campaign/Lore/Classes/Subclasses",
+    "Campaign/Lore/Ancestries/Heritages",
+    "Campaign/Lore/Ancestries"
   ]
 }
