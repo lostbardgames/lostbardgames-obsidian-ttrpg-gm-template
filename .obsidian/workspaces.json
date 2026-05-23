@@ -1,0 +1,169 @@
+{
+  "workspaces": {
+    "Default Workspace Layout": {
+      "main": {
+        "id": "5324373015726ba8",
+        "type": "split",
+        "children": [
+          {
+            "id": "4509724f8bf84da7",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "e7a7b303c61786dc",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Homepage.md",
+                    "mode": "source",
+                    "source": false
+                  },
+                  "icon": "lucide-file",
+                  "title": "Homepage"
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "vertical"
+      },
+      "left": {
+        "id": "5c3b4d0769d4f2b7",
+        "type": "split",
+        "children": [
+          {
+            "id": "bcc1bcb907b74b13",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "11254c66da043f19",
+                "type": "leaf",
+                "state": {
+                  "type": "file-explorer",
+                  "state": {
+                    "sortOrder": "alphabetical",
+                    "autoReveal": false
+                  },
+                  "icon": "lucide-folder-closed",
+                  "title": "Files"
+                }
+              },
+              {
+                "id": "1df5c1b18ecd3b37",
+                "type": "leaf",
+                "state": {
+                  "type": "search",
+                  "state": {
+                    "query": "",
+                    "matchingCase": false,
+                    "explainSearch": false,
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical"
+                  },
+                  "icon": "lucide-search",
+                  "title": "Search"
+                }
+              }
+            ]
+          },
+          {
+            "id": "cd3214da77991e3e",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "5c0507c102f0a5f5",
+                "type": "leaf",
+                "state": {
+                  "type": "CALENDARIUM",
+                  "state": {
+                    "calendar": "ID_c9b9f99bc9a9",
+                    "ephemeral": {
+                      "viewState": 1,
+                      "displaying": {
+                        "day": 1,
+                        "month": 0,
+                        "year": 836
+                      },
+                      "displayDayNumber": false,
+                      "displaySeasonColors": true,
+                      "interpolateColors": true,
+                      "displayMoons": true,
+                      "displayWeather": true
+                    },
+                    "id": "ID_7ada7a1b1b38"
+                  },
+                  "icon": "CALENDARIUM",
+                  "title": "Calendarium"
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "horizontal",
+        "width": 300
+      },
+      "right": {
+        "id": "22d7b4b20c833f45",
+        "type": "split",
+        "children": [
+          {
+            "id": "a8d92b702d583efd",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "e6eba1861ef6780c",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Buttons.md",
+                    "mode": "source",
+                    "source": false
+                  },
+                  "icon": "lucide-file",
+                  "title": "Buttons"
+                }
+              },
+              {
+                "id": "6c07b6955e2cd415",
+                "type": "leaf",
+                "state": {
+                  "type": "DICE_ROLLER_VIEW",
+                  "state": {},
+                  "icon": "dices",
+                  "title": "Dice Tray"
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "horizontal",
+        "width": 506.5
+      },
+      "left-ribbon": {
+        "hiddenItems": {
+          "daily-notes:Open today's daily note": true,
+          "templates:Insert template": true,
+          "obsidian-excalidraw-plugin:New drawing": false,
+          "templater-obsidian:Templater": true,
+          "obsidian-5e-statblocks:Open Creature pane": false,
+          "obsidian-leaflet-plugin:Open Leaflet Map": false,
+          "homepage:Open homepage": false,
+          "calendarium:Open Calendarium": false,
+          "graph:Open graph view": false,
+          "switcher:Open quick switcher": true,
+          "command-palette:Open command palette": false,
+          "canvas:Create new canvas": false,
+          "bases:Create new base": false,
+          "markdown-importer:Open format converter": false,
+          "workspaces:Manage workspace layouts": false
+        }
+      },
+      "active": "e7a7b303c61786dc",
+      "mtime": "2026-05-16T16:17:45-05:00"
+    }
+  },
+  "active": "Default Workspace Layout"
+}

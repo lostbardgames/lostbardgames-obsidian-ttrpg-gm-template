@@ -1,0 +1,121 @@
+properties:
+  file.name:
+    displayName: Name
+  property.aliases:
+    displayName: Aliases
+  property.occupation:
+    displayName: Occupation
+  property.currentLocation:
+    displayName: Location
+  property.organizationTypes:
+    displayName: Type
+  property.poiTypes:
+    displayName: Type
+  property.districttype:
+    displayName: Type
+  property.organizations:
+    displayName: Organizations
+  note.aliases:
+    displayName: Aliases
+  note.occupation:
+    displayName: Occupation
+  note.organizations:
+    displayName: Organizations
+  note.currentLocation:
+    displayName: Location
+  note.organizationTypes:
+    displayName: Type
+  note.poiTypes:
+    displayName: Type
+  note.districttype:
+    displayName: Types
+  note.terrain:
+    displayName: Terrain
+  note.dominion:
+    displayName: Dominion
+views:
+  - type: table
+    name: Areas
+    filters:
+      and:
+        - file.inFolder("Campaign/Areas")
+        - currentLocation.contains(this)
+    order:
+      - file.name
+      - aliases
+      - dominion
+      - terrain
+    sort: []
+    columnSize:
+      file.name: 152
+      note.aliases: 219
+      note.terrain: 199
+      note.dominion: 209
+  - type: table
+    name: Settlements
+    filters:
+      and:
+        - file.inFolder("Campaign/Settlements")
+        - currentLocation.contains(this)
+    order:
+      - file.name
+      - aliases
+      - terrain
+      - dominion
+    sort: []
+    columnSize:
+      file.name: 152
+      note.aliases: 302
+      note.terrain: 315
+      note.dominion: 209
+  - type: table
+    name: Points of Interest
+    filters:
+      and:
+        - file.inFolder("Campaign/Points of Interest")
+        - currentLocation.contains(this)
+    order:
+      - file.name
+      - aliases
+      - poiTypes
+      - organizations
+    columnSize:
+      file.name: 185
+      note.aliases: 251
+      note.poiTypes: 265
+  - type: table
+    name: Organizations
+    filters:
+      and:
+        - file.inFolder("Campaign/Organizations")
+        - currentLocation.contains(this)
+    order:
+      - file.name
+      - aliases
+      - organizationTypes
+      - organizations
+    sort: []
+    columnSize:
+      file.name: 314
+      note.aliases: 251
+      note.organizationTypes: 125
+  - type: table
+    name: Characters
+    filters:
+      and:
+        - file.inFolder("Campaign/Characters")
+        - currentLocation.contains(this)
+        - or:
+            - '!condition.contains("Dead")'
+            - condition.isEmpty()
+    order:
+      - file.name
+      - aliases
+      - dominion
+      - terrain
+    sort: []
+    columnSize:
+      file.name: 152
+      note.aliases: 219
+      note.terrain: 199
+      note.dominion: 209

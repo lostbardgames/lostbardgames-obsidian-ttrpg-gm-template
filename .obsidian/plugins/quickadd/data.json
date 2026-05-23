@@ -1,0 +1,931 @@
+{
+  "choices": [
+    {
+      "id": "a1b2c3d4-0001-4000-8000-000000000001",
+      "name": "New Player Character",
+      "type": "Macro",
+      "command": true,
+      "macro": {
+        "id": "b2c3d4e5-0001-4000-8000-000000000003",
+        "name": "New Player Character",
+        "commands": [
+          {
+            "id": "b2c3d4e5-0001-4000-8000-000000000004",
+            "name": "NewPlayerCharacter.js",
+            "type": "UserScript",
+            "path": "z_Templates/Scripts/NewPlayerCharacter.js",
+            "settings": {}
+          }
+        ]
+      }
+    },
+    {
+      "id": "a1b2c3d4-0001-4000-8000-000000000002",
+      "name": "New NPC",
+      "type": "Macro",
+      "command": true,
+      "macro": {
+        "id": "c3d4e5f6-0002-4000-8000-000000000001",
+        "name": "New NPC",
+        "commands": [
+          {
+            "id": "d4e5f6a7-0002-4000-8000-000000000002",
+            "name": "NewNPC.js",
+            "type": "UserScript",
+            "path": "z_Templates/Scripts/NewNPC.js",
+            "settings": {}
+          }
+        ]
+      }
+    },
+    {
+      "id": "a1b2c3d4-0001-4000-8000-000000000003",
+      "name": "New Deity",
+      "type": "Macro",
+      "command": true,
+      "macro": {
+        "id": "c3d4e5f6-0003-4000-8000-000000000001",
+        "name": "New Deity",
+        "commands": [
+          {
+            "id": "d4e5f6a7-0003-4000-8000-000000000002",
+            "name": "NewDeity.js",
+            "type": "UserScript",
+            "path": "z_Templates/Scripts/NewDeity.js",
+            "settings": {}
+          }
+        ]
+      }
+    },
+    {
+      "id": "a1b2c3d4-0001-4000-8000-000000000004",
+      "name": "New Organization",
+      "type": "Macro",
+      "command": true,
+      "macro": {
+        "id": "c3d4e5f6-0004-4000-8000-000000000001",
+        "name": "New Organization",
+        "commands": [
+          {
+            "id": "d4e5f6a7-0004-4000-8000-000000000002",
+            "name": "NewOrganization.js",
+            "type": "UserScript",
+            "path": "z_Templates/Scripts/NewOrganization.js",
+            "settings": {}
+          }
+        ]
+      }
+    },
+    {
+      "id": "a1b2c3d4-0001-4000-8000-000000000005",
+      "name": "New Party",
+      "type": "Macro",
+      "command": true,
+      "macro": {
+        "id": "b2c3d4e5-0001-4000-8000-000000000001",
+        "name": "New Party",
+        "commands": [
+          {
+            "id": "b2c3d4e5-0001-4000-8000-000000000002",
+            "name": "NewParty.js",
+            "type": "UserScript",
+            "path": "z_Templates/Scripts/NewParty.js",
+            "settings": {}
+          }
+        ]
+      }
+    },
+    {
+      "id": "a1b2c3d4-0001-4000-8000-000000000006",
+      "name": "New World",
+      "type": "Template",
+      "command": true,
+      "templatePath": "z_Templates/Locations/Template - World.md",
+      "fileNameFormat": {
+        "enabled": false,
+        "format": ""
+      },
+      "folder": {
+        "enabled": true,
+        "folders": [
+          "Campaign/Worlds"
+        ],
+        "chooseWhenMultipleOptions": false,
+        "createInSameFolderAsActiveFile": false,
+        "chooseFromSubfolders": false
+      },
+      "appendLink": false,
+      "openFileInNewTab": {
+        "enabled": false,
+        "direction": "vertical",
+        "focus": true
+      },
+      "openFile": true,
+      "openFileInMode": "default",
+      "fileExistsMode": "Increment the file name",
+      "setFileExistsBehavior": false,
+      "shouldRunStartupMacro": false,
+      "format": ""
+    },
+    {
+      "id": "a1b2c3d4-0001-4000-8000-000000000007",
+      "name": "New Region",
+      "type": "Template",
+      "command": true,
+      "templatePath": "z_Templates/Locations/Template - Region.md",
+      "fileNameFormat": {
+        "enabled": false,
+        "format": ""
+      },
+      "folder": {
+        "enabled": true,
+        "folders": [
+          "Campaign/Regions"
+        ],
+        "chooseWhenMultipleOptions": false,
+        "createInSameFolderAsActiveFile": false,
+        "chooseFromSubfolders": false
+      },
+      "appendLink": false,
+      "openFileInNewTab": {
+        "enabled": false,
+        "direction": "vertical",
+        "focus": true
+      },
+      "openFile": true,
+      "openFileInMode": "default",
+      "fileExistsMode": "Increment the file name",
+      "setFileExistsBehavior": false,
+      "shouldRunStartupMacro": false,
+      "format": ""
+    },
+    {
+      "id": "a1b2c3d4-0001-4000-8000-000000000008",
+      "name": "New Settlement",
+      "type": "Macro",
+      "command": true,
+      "macro": {
+        "id": "c3d4e5f6-0008-4000-8000-000000000001",
+        "name": "New Settlement",
+        "commands": [
+          {
+            "id": "d4e5f6a7-0008-4000-8000-000000000002",
+            "name": "NewSettlement.js",
+            "type": "UserScript",
+            "path": "z_Templates/Scripts/NewSettlement.js",
+            "settings": {}
+          }
+        ]
+      }
+    },
+    {
+      "id": "a1b2c3d4-0001-4000-8000-000000000009",
+      "name": "New District",
+      "type": "Macro",
+      "command": true,
+      "macro": {
+        "id": "c3d4e5f6-0009-4000-8000-000000000001",
+        "name": "New District",
+        "commands": [
+          {
+            "id": "d4e5f6a7-0009-4000-8000-000000000002",
+            "name": "NewDistrict.js",
+            "type": "UserScript",
+            "path": "z_Templates/Scripts/NewDistrict.js",
+            "settings": {}
+          }
+        ]
+      }
+    },
+    {
+      "id": "a1b2c3d4-0001-4000-8000-000000000010",
+      "name": "New Area",
+      "type": "Macro",
+      "command": true,
+      "macro": {
+        "id": "c3d4e5f6-0010-4000-8000-000000000001",
+        "name": "New Area",
+        "commands": [
+          {
+            "id": "d4e5f6a7-0010-4000-8000-000000000002",
+            "name": "NewArea.js",
+            "type": "UserScript",
+            "path": "z_Templates/Scripts/NewArea.js",
+            "settings": {}
+          }
+        ]
+      }
+    },
+    {
+      "id": "a1b2c3d4-0001-4000-8000-000000000011",
+      "name": "New Plane",
+      "type": "Template",
+      "command": true,
+      "templatePath": "z_Templates/Locations/Template - Plane.md",
+      "fileNameFormat": {
+        "enabled": false,
+        "format": ""
+      },
+      "folder": {
+        "enabled": true,
+        "folders": [
+          "Campaign/Planes"
+        ],
+        "chooseWhenMultipleOptions": false,
+        "createInSameFolderAsActiveFile": false,
+        "chooseFromSubfolders": false
+      },
+      "appendLink": false,
+      "openFileInNewTab": {
+        "enabled": false,
+        "direction": "vertical",
+        "focus": true
+      },
+      "openFile": true,
+      "openFileInMode": "default",
+      "fileExistsMode": "Increment the file name",
+      "setFileExistsBehavior": false,
+      "shouldRunStartupMacro": false,
+      "format": ""
+    },
+    {
+      "id": "a1b2c3d4-0001-4000-8000-000000000012",
+      "name": "New Point of Interest",
+      "type": "Macro",
+      "command": true,
+      "macro": {
+        "id": "c3d4e5f6-0012-4000-8000-000000000001",
+        "name": "New Point of Interest",
+        "commands": [
+          {
+            "id": "d4e5f6a7-0012-4000-8000-000000000002",
+            "name": "NewPOI.js",
+            "type": "UserScript",
+            "path": "z_Templates/Scripts/NewPOI.js",
+            "settings": {}
+          }
+        ]
+      }
+    },
+    {
+      "id": "a1b2c3d4-0001-4000-8000-000000000013",
+      "name": "New Shop",
+      "type": "Macro",
+      "command": true,
+      "macro": {
+        "id": "c3d4e5f6-0013-4000-8000-000000000001",
+        "name": "New Shop",
+        "commands": [
+          {
+            "id": "d4e5f6a7-0013-4000-8000-000000000002",
+            "name": "NewShop.js",
+            "type": "UserScript",
+            "path": "z_Templates/Scripts/NewShop.js",
+            "settings": {}
+          }
+        ]
+      }
+    },
+    {
+      "id": "a1b2c3d4-0001-4000-8000-000000000014",
+      "name": "New Class",
+      "type": "Template",
+      "command": true,
+      "templatePath": "z_Templates/Lore/Template - Class.md",
+      "fileNameFormat": {
+        "enabled": false,
+        "format": ""
+      },
+      "folder": {
+        "enabled": true,
+        "folders": [
+          "Campaign/Lore/Classes"
+        ],
+        "chooseWhenMultipleOptions": false,
+        "createInSameFolderAsActiveFile": false,
+        "chooseFromSubfolders": false
+      },
+      "appendLink": false,
+      "openFileInNewTab": {
+        "enabled": false,
+        "direction": "vertical",
+        "focus": true
+      },
+      "openFile": true,
+      "openFileInMode": "default",
+      "fileExistsMode": "Increment the file name",
+      "setFileExistsBehavior": false,
+      "shouldRunStartupMacro": false,
+      "format": ""
+    },
+    {
+      "id": "a1b2c3d4-0001-4000-8000-000000000015",
+      "name": "New Subclass",
+      "type": "Macro",
+      "command": true,
+      "macro": {
+        "id": "c3d4e5f6-0015-4000-8000-000000000001",
+        "name": "New Subclass",
+        "commands": [
+          {
+            "id": "d4e5f6a7-0015-4000-8000-000000000002",
+            "name": "NewSubclass.js",
+            "type": "UserScript",
+            "path": "z_Templates/Scripts/NewSubclass.js",
+            "settings": {}
+          }
+        ]
+      }
+    },
+    {
+      "id": "a1b2c3d4-0001-4000-8000-000000000016",
+      "name": "New Race",
+      "type": "Template",
+      "command": true,
+      "templatePath": "z_Templates/Lore/Template - Race.md",
+      "fileNameFormat": {
+        "enabled": false,
+        "format": ""
+      },
+      "folder": {
+        "enabled": true,
+        "folders": [
+          "Campaign/Lore/Races"
+        ],
+        "chooseWhenMultipleOptions": false,
+        "createInSameFolderAsActiveFile": false,
+        "chooseFromSubfolders": false
+      },
+      "appendLink": false,
+      "openFileInNewTab": {
+        "enabled": false,
+        "direction": "vertical",
+        "focus": true
+      },
+      "openFile": true,
+      "openFileInMode": "default",
+      "fileExistsMode": "Increment the file name",
+      "setFileExistsBehavior": false,
+      "shouldRunStartupMacro": false,
+      "format": ""
+    },
+    {
+      "id": "a1b2c3d4-0001-4000-8000-000000000017",
+      "name": "New Background",
+      "type": "Template",
+      "command": true,
+      "templatePath": "z_Templates/Lore/Template - Background.md",
+      "fileNameFormat": {
+        "enabled": false,
+        "format": ""
+      },
+      "folder": {
+        "enabled": true,
+        "folders": [
+          "Campaign/Lore/Backgrounds"
+        ],
+        "chooseWhenMultipleOptions": false,
+        "createInSameFolderAsActiveFile": false,
+        "chooseFromSubfolders": false
+      },
+      "appendLink": false,
+      "openFileInNewTab": {
+        "enabled": false,
+        "direction": "vertical",
+        "focus": true
+      },
+      "openFile": true,
+      "openFileInMode": "default",
+      "fileExistsMode": "Increment the file name",
+      "setFileExistsBehavior": false,
+      "shouldRunStartupMacro": false,
+      "format": ""
+    },
+    {
+      "id": "a1b2c3d4-0001-4000-8000-000000000018",
+      "name": "New Feat",
+      "type": "Template",
+      "command": true,
+      "templatePath": "z_Templates/Lore/Template - Feat.md",
+      "fileNameFormat": {
+        "enabled": false,
+        "format": ""
+      },
+      "folder": {
+        "enabled": true,
+        "folders": [
+          "Campaign/Lore/Feats"
+        ],
+        "chooseWhenMultipleOptions": false,
+        "createInSameFolderAsActiveFile": false,
+        "chooseFromSubfolders": false
+      },
+      "appendLink": false,
+      "openFileInNewTab": {
+        "enabled": false,
+        "direction": "vertical",
+        "focus": true
+      },
+      "openFile": true,
+      "openFileInMode": "default",
+      "fileExistsMode": "Increment the file name",
+      "setFileExistsBehavior": false,
+      "shouldRunStartupMacro": false,
+      "format": ""
+    },
+    {
+      "id": "a1b2c3d4-0001-4000-8000-000000000019",
+      "name": "New Condition",
+      "type": "Template",
+      "command": true,
+      "templatePath": "z_Templates/Lore/Template - Condition.md",
+      "fileNameFormat": {
+        "enabled": false,
+        "format": ""
+      },
+      "folder": {
+        "enabled": true,
+        "folders": [
+          "Campaign/Lore/Conditions"
+        ],
+        "chooseWhenMultipleOptions": false,
+        "createInSameFolderAsActiveFile": false,
+        "chooseFromSubfolders": false
+      },
+      "appendLink": false,
+      "openFileInNewTab": {
+        "enabled": false,
+        "direction": "vertical",
+        "focus": true
+      },
+      "openFile": true,
+      "openFileInMode": "default",
+      "fileExistsMode": "Increment the file name",
+      "setFileExistsBehavior": false,
+      "shouldRunStartupMacro": false,
+      "format": ""
+    },
+    {
+      "id": "a1b2c3d4-0001-4000-8000-000000000020",
+      "name": "New Event",
+      "type": "Template",
+      "command": true,
+      "templatePath": "z_Templates/Lore/Template - Event.md",
+      "fileNameFormat": {
+        "enabled": false,
+        "format": ""
+      },
+      "folder": {
+        "enabled": true,
+        "folders": [
+          "Campaign/Lore/Events"
+        ],
+        "chooseWhenMultipleOptions": false,
+        "createInSameFolderAsActiveFile": false,
+        "chooseFromSubfolders": false
+      },
+      "appendLink": false,
+      "openFileInNewTab": {
+        "enabled": false,
+        "direction": "vertical",
+        "focus": true
+      },
+      "openFile": true,
+      "openFileInMode": "default",
+      "fileExistsMode": "Increment the file name",
+      "setFileExistsBehavior": false,
+      "shouldRunStartupMacro": false,
+      "format": ""
+    },
+    {
+      "id": "a1b2c3d4-0001-4000-8000-000000000021",
+      "name": "New Language",
+      "type": "Template",
+      "command": true,
+      "templatePath": "z_Templates/Lore/Template - Language.md",
+      "fileNameFormat": {
+        "enabled": false,
+        "format": ""
+      },
+      "folder": {
+        "enabled": true,
+        "folders": [
+          "Campaign/Lore/Languages"
+        ],
+        "chooseWhenMultipleOptions": false,
+        "createInSameFolderAsActiveFile": false,
+        "chooseFromSubfolders": false
+      },
+      "appendLink": false,
+      "openFileInNewTab": {
+        "enabled": false,
+        "direction": "vertical",
+        "focus": true
+      },
+      "openFile": true,
+      "openFileInMode": "default",
+      "fileExistsMode": "Increment the file name",
+      "setFileExistsBehavior": false,
+      "shouldRunStartupMacro": false,
+      "format": ""
+    },
+    {
+      "id": "a1b2c3d4-0001-4000-8000-000000000022",
+      "name": "New Optional Feature",
+      "type": "Template",
+      "command": true,
+      "templatePath": "z_Templates/Lore/Template - Optional Feature.md",
+      "fileNameFormat": {
+        "enabled": false,
+        "format": ""
+      },
+      "folder": {
+        "enabled": true,
+        "folders": [
+          "Campaign/Lore/Optional Features"
+        ],
+        "chooseWhenMultipleOptions": false,
+        "createInSameFolderAsActiveFile": false,
+        "chooseFromSubfolders": false
+      },
+      "appendLink": false,
+      "openFileInNewTab": {
+        "enabled": false,
+        "direction": "vertical",
+        "focus": true
+      },
+      "openFile": true,
+      "openFileInMode": "default",
+      "fileExistsMode": "Increment the file name",
+      "setFileExistsBehavior": false,
+      "shouldRunStartupMacro": false,
+      "format": ""
+    },
+    {
+      "id": "a1b2c3d4-0001-4000-8000-000000000023",
+      "name": "New Adventure",
+      "type": "Macro",
+      "command": true,
+      "macro": {
+        "id": "c3d4e5f6-0023-4000-8000-000000000001",
+        "name": "New Adventure",
+        "commands": [
+          {
+            "id": "d4e5f6a7-0023-4000-8000-000000000002",
+            "name": "NewAdventure.js",
+            "type": "UserScript",
+            "path": "z_Templates/Scripts/NewAdventure.js",
+            "settings": {}
+          }
+        ]
+      }
+    },
+    {
+      "id": "a1b2c3d4-0001-4000-8000-000000000024",
+      "name": "New Quest",
+      "type": "Macro",
+      "command": true,
+      "macro": {
+        "id": "c3d4e5f6-0024-4000-8000-000000000001",
+        "name": "New Quest",
+        "commands": [
+          {
+            "id": "d4e5f6a7-0024-4000-8000-000000000002",
+            "name": "NewQuest.js",
+            "type": "UserScript",
+            "path": "z_Templates/Scripts/NewQuest.js",
+            "settings": {}
+          }
+        ]
+      }
+    },
+    {
+      "id": "a1b2c3d4-0001-4000-8000-000000000025",
+      "name": "New Session Notes",
+      "type": "Macro",
+      "command": true,
+      "macro": {
+        "id": "c3d4e5f6-0025-4000-8000-000000000001",
+        "name": "New Session Notes",
+        "commands": [
+          {
+            "id": "d4e5f6a7-0025-4000-8000-000000000002",
+            "name": "NewSessionNotes.js",
+            "type": "UserScript",
+            "path": "z_Templates/Scripts/NewSessionNotes.js",
+            "settings": {}
+          }
+        ]
+      }
+    },
+    {
+      "id": "a1b2c3d4-0001-4000-8000-000000000026",
+      "name": "New Encounter",
+      "type": "Macro",
+      "command": true,
+      "macro": {
+        "id": "c3d4e5f6-0026-4000-8000-000000000001",
+        "name": "New Encounter",
+        "commands": [
+          {
+            "id": "d4e5f6a7-0026-4000-8000-000000000002",
+            "name": "NewEncounter.js",
+            "type": "UserScript",
+            "path": "z_Templates/Scripts/NewEncounter.js",
+            "settings": {}
+          }
+        ]
+      }
+    },
+    {
+      "id": "a1b2c3d4-0001-4000-8000-000000000027",
+      "name": "New Service Request",
+      "type": "Macro",
+      "command": true,
+      "macro": {
+        "id": "c3d4e5f6-0027-4000-8000-000000000001",
+        "name": "New Service Request",
+        "commands": [
+          {
+            "id": "d4e5f6a7-0027-4000-8000-000000000002",
+            "name": "NewServiceRequest.js",
+            "type": "UserScript",
+            "path": "z_Templates/Scripts/NewServiceRequest.js",
+            "settings": {}
+          }
+        ]
+      }
+    },
+    {
+      "id": "a1b2c3d4-0001-4000-8000-000000000028",
+      "name": "New Item",
+      "type": "Template",
+      "command": true,
+      "templatePath": "z_Templates/Possessions/Template - Item.md",
+      "fileNameFormat": {
+        "enabled": false,
+        "format": ""
+      },
+      "folder": {
+        "enabled": true,
+        "folders": [
+          "Campaign/Possessions/Items"
+        ],
+        "chooseWhenMultipleOptions": false,
+        "createInSameFolderAsActiveFile": false,
+        "chooseFromSubfolders": false
+      },
+      "appendLink": false,
+      "openFileInNewTab": {
+        "enabled": false,
+        "direction": "vertical",
+        "focus": true
+      },
+      "openFile": true,
+      "openFileInMode": "default",
+      "fileExistsMode": "Increment the file name",
+      "setFileExistsBehavior": false,
+      "shouldRunStartupMacro": false,
+      "format": ""
+    },
+    {
+      "id": "a1b2c3d4-0001-4000-8000-000000000029",
+      "name": "New Spell",
+      "type": "Template",
+      "command": true,
+      "templatePath": "z_Templates/Possessions/Template - Spell.md",
+      "fileNameFormat": {
+        "enabled": false,
+        "format": ""
+      },
+      "folder": {
+        "enabled": true,
+        "folders": [
+          "Campaign/Possessions/Spells"
+        ],
+        "chooseWhenMultipleOptions": false,
+        "createInSameFolderAsActiveFile": false,
+        "chooseFromSubfolders": false
+      },
+      "appendLink": false,
+      "openFileInNewTab": {
+        "enabled": false,
+        "direction": "vertical",
+        "focus": true
+      },
+      "openFile": true,
+      "openFileInMode": "default",
+      "fileExistsMode": "Increment the file name",
+      "setFileExistsBehavior": false,
+      "shouldRunStartupMacro": false,
+      "format": ""
+    },
+    {
+      "id": "a1b2c3d4-0001-4000-8000-000000000030",
+      "name": "Reset Vault",
+      "type": "Macro",
+      "command": true,
+      "macro": {
+        "id": "c3d4e5f6-0030-4000-8000-000000000001",
+        "name": "Reset Vault",
+        "commands": [
+          {
+            "id": "d4e5f6a7-0030-4000-8000-000000000002",
+            "name": "ResetVault.js",
+            "type": "UserScript",
+            "path": "z_Templates/Scripts/ResetVault.js",
+            "settings": {}
+          }
+        ]
+      }
+    },
+    {
+      "id": "a1b2c3d4-0001-4000-8000-000000000031",
+      "name": "Import 5e.tools Data",
+      "type": "Macro",
+      "command": true,
+      "macro": {
+        "id": "c3d4e5f6-0031-4000-8000-000000000001",
+        "name": "Import 5e.tools Data",
+        "commands": [
+          {
+            "id": "d4e5f6a7-0031-4000-8000-000000000002",
+            "name": "RunImport.js",
+            "type": "UserScript",
+            "path": "z_Templates/Scripts/RunImport.js",
+            "settings": {}
+          }
+        ]
+      }
+    },
+    {
+      "id": "a1b2c3d4-0001-4000-8000-000000000033",
+      "name": "Import Character from D&D Beyond",
+      "type": "Macro",
+      "command": true,
+      "macro": {
+        "id": "c3d4e5f6-0033-4000-8000-000000000001",
+        "name": "Import Character from D&D Beyond",
+        "commands": [
+          {
+            "id": "d4e5f6a7-0033-4000-8000-000000000002",
+            "name": "ImportDnDBeyond.js",
+            "type": "UserScript",
+            "path": "z_Templates/Scripts/ImportDnDBeyond.js",
+            "settings": {}
+          }
+        ]
+      }
+    },
+    {
+      "id": "a1b2c3d4-0001-4000-8000-000000000032",
+      "name": "Update Vault",
+      "type": "Macro",
+      "command": true,
+      "macro": {
+        "id": "c3d4e5f6-0032-4000-8000-000000000001",
+        "name": "Update Vault",
+        "commands": [
+          {
+            "id": "d4e5f6a7-0032-4000-8000-000000000002",
+            "name": "UpdateVault.js",
+            "type": "UserScript",
+            "path": "z_Templates/Scripts/UpdateVault.js",
+            "settings": {}
+          }
+        ]
+      }
+    },
+    {
+      "id": "a1b2c3d4-0001-4000-8000-000000000034",
+      "name": "Import PF2e.tools Data",
+      "type": "Macro",
+      "command": true,
+      "macro": {
+        "id": "c3d4e5f6-0034-4000-8000-000000000001",
+        "name": "Import PF2e.tools Data",
+        "commands": [
+          {
+            "id": "d4e5f6a7-0034-4000-8000-000000000002",
+            "name": "RunPF2eImport.js",
+            "type": "UserScript",
+            "path": "z_Templates/Scripts/RunPF2eImport.js",
+            "settings": {}
+          }
+        ]
+      }
+    }
+  ],
+  "inputPrompt": "single-line",
+  "persistInputPromptDrafts": true,
+  "useSelectionAsCaptureValue": true,
+  "devMode": false,
+  "templateFolderPath": "z_Templates",
+  "announceUpdates": "major",
+  "version": "2.12.0",
+  "globalVariables": {},
+  "onePageInputEnabled": false,
+  "disableOnlineFeatures": true,
+  "enableRibbonIcon": false,
+  "showCaptureNotification": true,
+  "showInputCancellationNotification": false,
+  "enableTemplatePropertyTypes": false,
+  "dateAliases": {
+    "t": "today",
+    "tm": "tomorrow",
+    "yd": "yesterday",
+    "nw": "next week",
+    "nm": "next month",
+    "ny": "next year",
+    "lw": "last week",
+    "lm": "last month",
+    "ly": "last year"
+  },
+  "ai": {
+    "defaultModel": "Ask me",
+    "defaultSystemPrompt": "As an AI assistant within Obsidian, your primary goal is to help users manage their ideas and knowledge more effectively. Format your responses using Markdown syntax. Please use the [[Obsidian]] link format. You can write aliases for the links by writing [[Obsidian|the alias after the pipe symbol]]. To use mathematical notation, use LaTeX syntax. LaTeX syntax for larger equations should be on separate lines, surrounded with double dollar signs ($$). You can also inline math expressions by wrapping it in $ symbols. For example, use $$w_{ij}^{\text{new}}:=w_{ij}^{\text{current}}+etacdotdelta_jcdot x_{ij}$$ on a separate line, but you can write \"($eta$ = learning rate, $delta_j$ = error term, $x_{ij}$ = input)\" inline.",
+    "promptTemplatesFolderPath": "",
+    "showAssistant": true,
+    "providers": [
+      {
+        "name": "OpenAI",
+        "endpoint": "https://api.openai.com/v1",
+        "apiKey": "",
+        "models": [
+          {
+            "name": "gpt-3.5-turbo",
+            "maxTokens": 4096
+          },
+          {
+            "name": "gpt-3.5-turbo-16k",
+            "maxTokens": 16384
+          },
+          {
+            "name": "gpt-3.5-turbo-1106",
+            "maxTokens": 16385
+          },
+          {
+            "name": "gpt-4",
+            "maxTokens": 8192
+          },
+          {
+            "name": "gpt-4-32k",
+            "maxTokens": 32768
+          },
+          {
+            "name": "gpt-4-1106-preview",
+            "maxTokens": 128000
+          },
+          {
+            "name": "gpt-4-turbo",
+            "maxTokens": 128000
+          },
+          {
+            "name": "gpt-4o",
+            "maxTokens": 128000
+          },
+          {
+            "name": "gpt-4o-mini",
+            "maxTokens": 128000
+          }
+        ],
+        "autoSyncModels": false,
+        "modelSource": "modelsDev"
+      },
+      {
+        "name": "Gemini",
+        "endpoint": "https://generativelanguage.googleapis.com",
+        "apiKey": "",
+        "models": [
+          {
+            "name": "gemini-1.5-pro",
+            "maxTokens": 1000000
+          },
+          {
+            "name": "gemini-1.5-flash",
+            "maxTokens": 1000000
+          },
+          {
+            "name": "gemini-1.5-flash-8b",
+            "maxTokens": 1000000
+          }
+        ],
+        "autoSyncModels": false,
+        "modelSource": "modelsDev"
+      }
+    ]
+  },
+  "migrations": {
+    "migrateToMacroIDFromEmbeddedMacro": true,
+    "useQuickAddTemplateFolder": true,
+    "incrementFileNameSettingMoveToDefaultBehavior": true,
+    "mutualExclusionInsertAfterAndWriteToBottomOfFile": true,
+    "setVersionAfterUpdateModalRelease": true,
+    "addDefaultAIProviders": true,
+    "removeMacroIndirection": true,
+    "migrateFileOpeningSettings": true,
+    "backfillFileOpeningDefaults": true,
+    "setProviderModelDiscoveryMode": true,
+    "migrateProviderApiKeysToSecretStorage": true
+  }
+}

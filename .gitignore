@@ -1,0 +1,27 @@
+# ── macOS ─────────────────────────────────────────────────────────────────────
+.DS_Store
+**/.DS_Store
+
+# ── Obsidian session state (user-specific, auto-regenerated) ──────────────────
+.obsidian/workspace-mobile.json
+.obsidian/ddb-config.json
+# workspace.json is intentionally tracked — it defines the initial vault layout
+
+# ── User data & vault backups ─────────────────────────────────────────────────
+.trash/
+.vault-backups/
+# Ignore user content inside z_Uncategoried but keep the folder itself
+z_Uncategoried/*
+!z_Uncategoried/.gitkeep
+
+# ── Python cache ──────────────────────────────────────────────────────────────
+__pycache__/
+*.pyc
+
+# ── Build artifacts (generated at release time) ───────────────────────────────
+*.bak
+TTRPG-Vault-*.zip
+files.json
+
+# ── Claude project memory (local only, never pushed to GitHub) ────────────────
+CLAUDE.md

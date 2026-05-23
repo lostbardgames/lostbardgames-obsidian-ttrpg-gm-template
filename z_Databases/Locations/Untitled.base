@@ -1,0 +1,36 @@
+filters:
+  or:
+    - currentLocation.contains(this)
+    - formula.LinkedViaPlace
+formulas:
+  LinkedViaPlace: |
+    list(currentLocation)                                          
+      .filter( file(value)                                     
+               && list(file(value).properties.currentLocation)     
+                    .contains(this) )                          
+      .length > 0
+  PlacesForThis: |
+    list(currentLocation)
+      .filter( file(value)
+               && list(file(value).properties.currentLocation).contains(this) )
+      .map( link(value, file(value).name) )
+properties:
+  file.name:
+    displayName: Person
+  PlacesForThis:
+    displayName: Places (for this note)
+views:
+  - type: table
+    name: People linked via Places → this note
+    filters:
+      and:
+        - file.inFolder("Campaign/NPCs")
+    order:
+      - file.name
+      - aliases
+      - occupation
+      - organizations
+      - currentLocation
+    image: note.image
+  - type: table
+    name: View

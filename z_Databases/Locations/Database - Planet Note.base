@@ -1,0 +1,112 @@
+properties:
+  file.name:
+    displayName: Name
+  property.aliases:
+    displayName: Aliases
+  property.occupation:
+    displayName: Occupation
+  property.currentLocation:
+    displayName: Location
+  property.organizationTypes:
+    displayName: Type
+  property.poiTypes:
+    displayName: Type
+  property.districttype:
+    displayName: Type
+  property.organizations:
+    displayName: Organizations
+  note.aliases:
+    displayName: Aliases
+  note.occupation:
+    displayName: Occupation
+  note.organizations:
+    displayName: Organizations
+  note.currentLocation:
+    displayName: Location
+  note.organizationTypes:
+    displayName: Types
+  note.poiTypes:
+    displayName: Types
+  note.districttype:
+    displayName: Types
+  note.terrain:
+    displayName: Terrain
+  note.dominion:
+    displayName: Dominion
+views:
+  - type: table
+    name: Continents
+    filters:
+      and:
+        - file.inFolder("Campaign/Topography")
+        - topographyType.contains("Continent")
+        - currentLocation.contains(this)
+    order:
+      - file.name
+      - aliases
+      - dominion
+    sort:
+      - property: file.name
+        direction: DESC
+    columnSize:
+      file.name: 139
+      note.aliases: 234
+      note.terrain: 193
+  - type: table
+    name: Islands
+    filters:
+      and:
+        - file.inFolder("Campaign/Topography")
+        - topographyType.contains("Island")
+        - currentLocation.contains(this)
+    order:
+      - file.name
+      - aliases
+      - dominion
+    columnSize:
+      file.name: 139
+      note.aliases: 234
+      note.terrain: 193
+  - type: table
+    name: Oceans
+    filters:
+      and:
+        - file.inFolder("Campaign/Topography")
+        - topographyType.contains("Ocean")
+        - currentLocation.contains(this)
+    order:
+      - file.name
+      - aliases
+      - dominion
+    columnSize:
+      file.name: 139
+      note.aliases: 234
+      note.terrain: 193
+  - type: table
+    name: Moons
+    filters:
+      and:
+        - file.inFolder("Campaign/Worlds")
+        - worldType.contains("Moon")
+        - currentLocation.contains(this)
+    order:
+      - file.name
+      - aliases
+      - dominion
+  - type: table
+    name: Characters
+    filters:
+      and:
+        - file.inFolder("Campaign/Characters")
+        - currentLocation.contains(this)
+        - or:
+            - '!condition.contains("Dead")'
+            - condition.isEmpty()
+    order:
+      - file.name
+      - aliases
+      - dominion
+    columnSize:
+      file.name: 139
+      note.aliases: 234
+      note.terrain: 193

@@ -1,0 +1,68 @@
+properties:
+  file.name:
+    displayName: Name
+  note.aliases:
+    displayName: Aliases
+  file.ctime:
+    displayName: Created Time
+  file.mtime:
+    displayName: Modified Time
+  note.tags:
+    displayName: Tags
+views:
+  - type: table
+    name: Last Edited
+    filters:
+      and:
+        - "!file.mtime.isEmpty()"
+    order:
+      - file.name
+      - aliases
+      - file.ctime
+      - file.mtime
+    sort:
+      - property: file.mtime
+        direction: DESC
+    limit: 10
+    columnSize:
+      file.name: 376
+      note.aliases: 323
+      file.ctime: 159
+      file.mtime: 165
+  - type: table
+    name: Recently Created
+    filters:
+      and:
+        - "!file.ctime.isEmpty()"
+    order:
+      - file.name
+      - aliases
+      - file.ctime
+      - file.mtime
+    sort:
+      - property: file.ctime
+        direction: DESC
+    limit: 10
+  - type: table
+    name: No Location Set
+    filters:
+      and:
+        - currentLocation.isEmpty()
+        - file.folder.contains("Campaign")
+        - tags.containsAny("Planet", "Continent", "Ocean", "Settlement", "District", "POI", "Organization", "NPC")
+        - '!tags.contains("Deity")'
+        - condition != "Dead"
+    order:
+      - file.name
+      - aliases
+      - file.ctime
+      - file.mtime
+    sort:
+      - property: tags
+        direction: ASC
+    columnSize:
+      file.name: 255
+      note.aliases: 287
+      file.ctime: 159
+      file.mtime: 179
+      note.tags: 213

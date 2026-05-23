@@ -1,0 +1,31 @@
+properties:
+  file.name:
+    displayName: Name
+  property.aliases:
+    displayName: Aliases
+  property.deliveryDate:
+    displayName: Due Date
+  property.summary:
+    displayName: Summary
+  property.organizationTypes:
+    displayName: Type
+  property.organization:
+    displayName: Organizations
+  note.aliases:
+    displayName: Aliases
+  note.organizationTypes:
+    displayName: Types
+views:
+  - type: table
+    name: Worship Organizations
+    filters:
+      and:
+        - worship.contains(this)
+    order:
+      - file.name
+      - aliases
+      - organizationTypes
+    sort: []
+    columnSize:
+      file.name: 214
+      note.aliases: 256
