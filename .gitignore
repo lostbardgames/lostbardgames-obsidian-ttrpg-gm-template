@@ -3,9 +3,9 @@
 **/.DS_Store
 
 # ── Obsidian session state (user-specific, auto-regenerated) ──────────────────
-.obsidian/workspace.json
 .obsidian/workspace-mobile.json
 .obsidian/ddb-config.json
+# workspace.json is intentionally tracked — it defines the initial vault layout
 
 # ── User data & vault backups ─────────────────────────────────────────────────
 .trash/
