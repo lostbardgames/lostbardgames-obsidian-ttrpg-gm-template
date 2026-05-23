@@ -14,6 +14,8 @@ import argparse
 import json
 import os
 import re
+import ssl
+import subprocess
 import sys
 import urllib.request
 import urllib.error
@@ -25,6 +27,27 @@ if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 if hasattr(sys.stderr, "reconfigure"):
     sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+
+
+def _make_ssl_context():
+    try:
+        import certifi
+        return ssl.create_default_context(cafile=certifi.where())
+    except ImportError:
+        pass
+    try:
+        subprocess.check_call(
+            [sys.executable, "-m", "pip", "install", "certifi", "-q"],
+            stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+        )
+        import certifi
+        return ssl.create_default_context(cafile=certifi.where())
+    except Exception:
+        pass
+    return ssl.create_default_context()
+
+
+_SSL_CTX = _make_ssl_context()
 
 # ── Configuration ─────────────────────────────────────────────────────────────
 
@@ -94,7 +117,7 @@ CONTENT_TYPES = ["spells", "items", "backgrounds", "classes", "classfeatures", "
 def fetch_json(url: str) -> Optional[dict]:
     try:
         req = urllib.request.Request(url, headers={"User-Agent": "5etools-obsidian-importer/1.0"})
-        with urllib.request.urlopen(req, timeout=30) as r:
+        with urllib.request.urlopen(req, timeout=30, context=_SSL_CTX) as r:
             return json.loads(r.read().decode())
     except urllib.error.HTTPError as e:
         if e.code == 404:

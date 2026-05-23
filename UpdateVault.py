@@ -26,7 +26,36 @@ if hasattr(sys.stderr, "reconfigure"):
     sys.stderr.reconfigure(encoding="utf-8", errors="replace")
 import hashlib
 import shutil
+import ssl
+import subprocess
 import urllib.request
+
+
+def _make_ssl_context():
+    """SSL context that works on Windows and macOS.
+
+    Python on Windows uses a bundled OpenSSL that doesn't read the Windows
+    certificate store, so CERTIFICATE_VERIFY_FAILED is common. certifi ships
+    its own CA bundle that works everywhere. Auto-install it if missing.
+    """
+    try:
+        import certifi
+        return ssl.create_default_context(cafile=certifi.where())
+    except ImportError:
+        pass
+    try:
+        subprocess.check_call(
+            [sys.executable, "-m", "pip", "install", "certifi", "-q"],
+            stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+        )
+        import certifi
+        return ssl.create_default_context(cafile=certifi.where())
+    except Exception:
+        pass
+    return ssl.create_default_context()
+
+
+_SSL_CTX = _make_ssl_context()
 
 # ── Constants ──────────────────────────────────────────────────────────────────
 
@@ -95,13 +124,13 @@ def sha256_bytes(data):
 
 def http_get_json(url):
     req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
-    with urllib.request.urlopen(req, timeout=30) as r:
+    with urllib.request.urlopen(req, timeout=30, context=_SSL_CTX) as r:
         return json.loads(r.read())
 
 
 def http_get_bytes(url):
     req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
-    with urllib.request.urlopen(req, timeout=60) as r:
+    with urllib.request.urlopen(req, timeout=60, context=_SSL_CTX) as r:
         return r.read()
 
 
