@@ -10,6 +10,85 @@ if (await app.vault.adapter.exists(MARKER)) {
     return;
 }
 
+// ── Game System Selection (first launch only) ─────────────────────────────
+// Check vault-config.json. If no system is set, present the system picker
+// before finishing layout setup. Uses tp.system.suggester (Templater API).
+let systemAlreadyConfigured = false;
+try {
+    const cfgRaw = await app.vault.adapter.read("vault-config.json");
+    const cfg = JSON.parse(cfgRaw);
+    systemAlreadyConfigured = !!cfg.gameSystem;
+} catch (_) {
+    systemAlreadyConfigured = false;
+}
+
+if (!systemAlreadyConfigured) {
+    // ── System definitions (kept in sync with SetupSystem.js) ────────────
+    const SYSTEMS = [
+        { id: "agnostic",    name: "System Agnostic",                      icon: "🎲", desc: "No system-specific rules — works with any TTRPG" },
+        { id: "dnd5e",       name: "D&D 5th Edition (2014)",               icon: "⚔️", desc: "2014 Player's Handbook — Race, Class, Background, Spells" },
+        { id: "dnd5e_2024",  name: "D&D 5th Edition (2024 / One D&D)",     icon: "⚔️", desc: "2024 revised rules — Species, Origin Feats, updated classes" },
+        { id: "pf2e",        name: "Pathfinder 2nd Edition",               icon: "🔆", desc: "Ancestry, Heritage, Proficiency ranks, 3-action system" },
+        { id: "pf1e",        name: "Pathfinder 1e / D&D 3.5",             icon: "🏹", desc: "BAB, three saves, skill ranks, archetypes" },
+        { id: "coc7e",       name: "Call of Cthulhu 7th Edition",          icon: "🐙", desc: "Investigators, Occupations, percentile skills, Sanity" },
+        { id: "vtm5",        name: "Vampire: The Masquerade 5e",           icon: "🩸", desc: "Clans, Disciplines, Hunger, Humanity, the Masquerade" },
+        { id: "starfinder",  name: "Starfinder 1st Edition",               icon: "🚀", desc: "Sci-fi adventure — Themes, Stamina/HP/Resolve, starships" },
+        { id: "swade",       name: "Savage Worlds Adventure Edition",      icon: "🎴", desc: "Die-based attributes, Edges & Hindrances, fast play" },
+    ];
+
+    const labels = SYSTEMS.map(s => `${s.icon}  ${s.name}  —  ${s.desc}`);
+
+    // Show a welcome modal-style notice, then the suggester
+    new Notice(
+        "👋 Welcome! Select your game system to configure the vault.\n\nYou can change this later from the Vault section of Buttons.md.",
+        8000
+    );
+    await new Promise(r => setTimeout(r, 400));
+
+    const chosen = await tp.system.suggester(labels, SYSTEMS, true, "Select Your Game System");
+    if (chosen) {
+        // Load and call SetupSystem.js runSetup()
+        try {
+            const setupScriptFile = app.vault.getAbstractFileByPath(
+                "z_Templates/Scripts/SetupSystem.js"
+            );
+            if (setupScriptFile) {
+                const scriptContent = await app.vault.read(setupScriptFile);
+                // Extract the SYSTEMS and runSetup by evaluating the module
+                const mod = {};
+                (new Function("module", "exports", "app", scriptContent))(
+                    mod, mod, app
+                );
+                const runSetup = mod.exports?.runSetup || mod.runSetup;
+                if (typeof runSetup === "function") {
+                    // Find the matching system object in SetupSystem.js definitions
+                    const sysList = mod.exports?.SYSTEMS || mod.SYSTEMS;
+                    const sys = sysList?.find(s => s.id === chosen.id) || chosen;
+                    await runSetup(app, null, sys, false);
+                }
+            }
+        } catch (setupErr) {
+            console.warn("[SetupLayout] system setup error:", setupErr);
+            // Write config even if template copy fails
+            try {
+                const fallbackCfg = JSON.stringify({
+                    gameSystem: chosen.id,
+                    gameSystemName: chosen.name,
+                    configuredAt: new Date().toISOString(),
+                }, null, 2) + "\n";
+                const cfgFile = app.vault.getAbstractFileByPath("vault-config.json");
+                if (cfgFile) {
+                    await app.vault.modify(cfgFile, fallbackCfg);
+                } else {
+                    await app.vault.create("vault-config.json", fallbackCfg);
+                }
+            } catch (_) {}
+        }
+    }
+    // Brief pause so notices are readable before layout kicks in
+    await new Promise(r => setTimeout(r, 600));
+}
+
 // ── Default split layout ──────────────────────────────────────────────────
 await new Promise(r => setTimeout(r, 600));
 
@@ -29,7 +108,6 @@ const layoutRef = app.workspace.on("layout-change", closeDuplicateHomepages);
 setTimeout(() => app.workspace.offref(layoutRef), 2000);
 
 // ── Helpers ───────────────────────────────────────────────────────────────
-// Walk the right-split tree and return every leaf panel in it.
 function getRightLeaves() {
     const leaves = [];
     function walk(node) {
@@ -41,7 +119,6 @@ function getRightLeaves() {
     return leaves;
 }
 
-// Returns true if a leaf lives inside the right sidebar.
 function isInRight(leaf) {
     let n = leaf.parent;
     while (n) { if (n === app.workspace.rightSplit) return true; n = n.parent; }
@@ -74,10 +151,8 @@ if (!buttonsLeaf) {
 // ── Step 4: Ensure Dice Tray is in the right sidebar ─────────────────────
 let diceLeaf = getRightLeaves().find(l => l.getViewState?.().type === "DICE_ROLLER_VIEW");
 if (!diceLeaf) {
-    // getRightLeaf(false) may return the existing Buttons leaf — guard against that.
     const candidate = app.workspace.getRightLeaf(false);
     if (candidate === buttonsLeaf) {
-        // Force a genuinely new tab by splitting then collapsing the split into tabs.
         diceLeaf = app.workspace.createLeafBySplit(buttonsLeaf, "vertical", false);
     } else {
         diceLeaf = candidate;
@@ -86,18 +161,14 @@ if (!diceLeaf) {
 }
 
 // ── Step 5: Enforce order — Buttons tab 0, Dice Tray tab 1 ───────────────
-// The WorkspaceTabs container is the first child of the right split.
 const rightTabs = app.workspace.rightSplit?.children?.[0];
 if (rightTabs?.children && buttonsLeaf && diceLeaf) {
     const tabs = rightTabs.children;
     const bIdx = tabs.indexOf(buttonsLeaf);
-    const dIdx = tabs.indexOf(diceLeaf);
-    if (bIdx !== -1 && dIdx !== -1 && bIdx !== 0) {
-        // Splice Buttons to the front.
+    if (bIdx !== -1 && bIdx !== 0) {
         tabs.splice(bIdx, 1);
         tabs.unshift(buttonsLeaf);
     }
-    // Activate Buttons as the selected tab.
     rightTabs.currentTab = 0;
     app.workspace.trigger("layout-change");
 }

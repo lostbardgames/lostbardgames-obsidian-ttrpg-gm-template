@@ -46,14 +46,6 @@
 > >   - type: command
 > >     command: quickadd:choice:a1b2c3d4-0001-4000-8000-000000000004
 > > ```
-> >
-> > ```meta-bind-button
-> > label: "Import Character from D&D Beyond"
-> > style: primary
-> > actions:
-> >   - type: command
-> >     command: quickadd:choice:a1b2c3d4-0001-4000-8000-000000000033
-> > ```
 
 ---
 
@@ -130,6 +122,8 @@
 > > ```
 
 ---
+
+<!-- SYSTEM-LORE-START -->
 
 ## 📖 Lore
 
@@ -213,6 +207,8 @@
 > >     command: quickadd:choice:a1b2c3d4-0001-4000-8000-000000000022
 > > ```
 
+<!-- SYSTEM-LORE-END -->
+
 ---
 
 ## 📜 Story
@@ -282,7 +278,7 @@
 > > [!note|no-t]
 > >
 > > ```meta-bind-button
-> > label: "New Spell"
+> > label: "New Spell / Power"
 > > style: primary
 > > actions:
 > >   - type: command
@@ -297,6 +293,7 @@
 >
 > > [!success|no-t] **Import Data**
 > >
+<!-- SYSTEM-IMPORT-START -->
 > > ```meta-bind-button
 > > label: "Import 5e.tools Data"
 > > style: primary
@@ -306,25 +303,28 @@
 > > ```
 > >
 > > ```meta-bind-button
-> > label: "Import PF2e.tools Data"
+> > label: "Import Character from D&D Beyond"
 > > style: primary
 > > actions:
 > >   - type: command
-> >     command: quickadd:choice:a1b2c3d4-0001-4000-8000-000000000034
+> >     command: quickadd:choice:a1b2c3d4-0001-4000-8000-000000000033
 > > ```
+<!-- SYSTEM-IMPORT-END -->
 > >
-> > Walks you through four steps:
-> > 1. **Source** — WotC official (all books), specific books (pick exactly which ones), or all sources including third-party
-> > 2. **Books** *(specific mode only)* — multi-select from PHB, XGE, TCE, DMG, CoS, and 30+ more
-> > 3. **Content types** — pick any combination of spells, items, classes, class features, races, racial traits, backgrounds, background features, feats, languages, deities, conditions, and optional features
-> > 4. **Confirm** — then downloads and creates notes automatically
-> >
-> > Non-destructive — existing notes are never overwritten, so it's safe to re-run. If Python 3 is not installed, the button will offer to install it for you. Requires an internet connection.
+> > Non-destructive — existing notes are never overwritten. Requires Python 3 and an internet connection.
 > >
 > > > [!warning] ⚠️ License Disclaimer
-> > > You are responsible for ensuring you have a valid license or legal right to access the content you import. This tool does not grant any rights to copyrighted material. Content from the SRD 5.1 is available under the Creative Commons license. All other sourcebooks require a valid purchase or license from the publisher.
+> > > You are responsible for ensuring you have a valid license or legal right to access the content you import. Content from the SRD 5.1 is available under the Creative Commons license. All other sourcebooks require a valid purchase or license from the publisher.
 >
-> > [!info|no-t] **Update Vault**
+> > [!info|no-t] **Vault Settings**
+> >
+> > ```meta-bind-button
+> > label: "Configure Game System"
+> > style: primary
+> > actions:
+> >   - type: command
+> >     command: quickadd:choice:a1b2c3d4-0001-4000-8000-000000000038
+> > ```
 > >
 > > ```meta-bind-button
 > > label: "Check for Updates"
@@ -334,7 +334,9 @@
 > >     command: quickadd:choice:a1b2c3d4-0001-4000-8000-000000000032
 > > ```
 > >
-> > 📦 **Installed version:** v`$= app.vault.adapter.read("version.json").then(f => JSON.parse(f).version)`
+> > 🎲 **Game System:** `$= const f = await app.vault.adapter.read("vault-config.json").catch(()=>"{}"); const c = JSON.parse(f); c.gameSystemName ?? "Not configured"`
+> >
+> > 📦 **Vault version:** v`$= app.vault.adapter.read("version.json").then(f => JSON.parse(f).version)`
 > >
 > > Checks GitHub for a newer version and walks you through the update. Templates, scripts, CSS snippets, and guide files are updated automatically. Tool files (Homepage, Buttons, GM Screen) are optional — they are backed up as `.bak` files before being overwritten.
 > >
@@ -350,4 +352,4 @@
 > >     command: quickadd:choice:a1b2c3d4-0001-4000-8000-000000000030
 > > ```
 > >
-> > Choose between **Campaign Data Only** (preserves 5e.tools imports) or **Full Reset** (deletes everything). ⚠️ Files are permanently deleted and cannot be recovered.
+> > Choose between **Campaign Data Only** or **Full Reset** (deletes everything). ⚠️ Files are permanently deleted and cannot be recovered.
